@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Placeholder for transparency notice -->
+    <!-- Njoftimi për transparencë -->
     <div class="transparency-notice" id="transparencyNotice">
         <p><i class="fas fa-info-circle"></i> Aktiviteti juaj regjistrohet për siguri dhe për të përmirësuar shërbimin. Për më shumë informacion, shikoni politikën tonë të privatësisë.</p>
         <button onclick="closeTransparencyNotice()" aria-label="Mbylle njoftimin"><i class="fas fa-times"></i></button>
     </div>
 
-    <!-- Header placeholder -->
+    <!-- Menyja kryesore -->
     <header class="main-header">
         <nav class="navbar">
             <div class="logo">
@@ -24,6 +24,7 @@
                     <span>AssistiveSense</span>
                 </a>
             </div>
+            
             <ul class="nav-menu">
                 <li><a href="index.html" class="active"><i class="fas fa-home"></i> Kryefaqja</a></li>
                 <li><a href="features.html"><i class="fas fa-cogs"></i> Veçoritë</a></li>
@@ -32,16 +33,19 @@
                 <li><a href="reporting.html"><i class="fas fa-flag"></i> Raportim</a></li>
                 <li><a href="intellectual-property.html"><i class="fas fa-balance-scale"></i> Pronësia Intelektuale</a></li>
             </ul>
+            
             <div class="accessibility-controls">
                 <button id="increaseFont" aria-label="Rrit madhësinë e fontit"><i class="fas fa-text-height"></i></button>
                 <button id="decreaseFont" aria-label="Zvogëlo madhësinë e fontit"><i class="fas fa-text-width"></i></button>
                 <button id="highContrast" aria-label="Ndrysho kontrastin"><i class="fas fa-adjust"></i></button>
                 <button id="textToSpeechToggle" aria-label="Ndez/Fik transformimin e tekstit në të folur"><i class="fas fa-volume-up"></i></button>
             </div>
+            
             <div class="auth-buttons">
                 <a href="#" class="btn btn-outline" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Hyr</a>
                 <a href="#" class="btn btn-primary" id="registerBtn"><i class="fas fa-user-plus"></i> Regjistrohu</a>
             </div>
+            
             <button class="hamburger" id="hamburgerMenu" aria-label="Shfaq/Fshih menynë">
                 <i class="fas fa-bars"></i>
             </button>
@@ -49,240 +53,277 @@
     </header>
 
     <main>
+        <!-- Seksioni Hero -->
         <section class="hero-section">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="main-title">AssistiveSense</h1>
-                    <p class="hero-description">Një platform bashkëpunuese për njerëzit me aftësi të kufizuara të shikimit. Aplikacioni ndihmon në zvogëlimin e pengesave dixhitale dhe rrit pavarësinë.</p>
+                    <h1 class="main-title">AssistiveSense - Asistenti për Personat me Aftësi të Kufizuara të Shikimit</h1>
+                    <p class="hero-description">Një platformë inovative e dizajnuar posaçërisht për të ndihmuar personat me probleme të shikimit në përdorimin e teknologjisë në mënyrë të pavarur dhe efektive.</p>
+                    
                     <div class="hero-buttons">
-                        <a href="#features" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Shëtitje Veçorive</a>
-                        <a href="#" class="btn btn-outline"><i class="fas fa-info-circle"></i> Mëso më Shumë</a>
+                        <a href="features.html" class="btn btn-primary btn-large"><i class="fas fa-play-circle"></i> Eksploro Veçoritë</a>
+                        <a href="#demo" class="btn btn-secondary btn-large"><i class="fas fa-video"></i> Shiko Demonstruesin</a>
                     </div>
                 </div>
+                
                 <div class="hero-image">
                     <div class="image-placeholder">
-                        <i class="fas fa-universal-access"></i>
+                        <i class="fas fa-low-vision"></i>
+                        <p>Ilustrim i aplikacionit për aksesueshmëri</p>
                     </div>
                 </div>
             </div>
         </section>
 
-
+        <!-- Seksioni Përshkrim i Aplikacionit -->
         <section class="description-section">
             <div class="container">
                 <h2 class="section-title">Çfarë ofron aplikacioni ynë?</h2>
                 
                 <div class="description-grid">
                     <div class="description-card">
-                        <div class="card-icon"><i class="fas fa-text-height"></i></div>
-                        <h3>Kontroll i Madhësisë</h3>
-                        <p>Rritni ose zvogëloni madhësinë e tekstit sipas preferencave tuaja. Ndryshime të rëndësishme për lexueshmëri.</p>
+                        <div class="card-icon">
+                            <i class="fas fa-assistive-listening-systems"></i>
+                        </div>
+                        <h3>Tekst-në-Të-Folur</h3>
+                        <p>Transformoni çdo tekst në faqe në të folur me cilësi të lartë, me opsione për shpejtësi, ton dhe gjuhë të ndryshme.</p>
                     </div>
                     
                     <div class="description-card">
-                        <div class="card-icon"><i class="fas fa-adjust"></i></div>
+                        <div class="card-icon">
+                            <i class="fas fa-contrast"></i>
+                        </div>
                         <h3>Kontrast i Lartë</h3>
-                        <p>Ndërroni në modalitetin me kontrast të lartë për lexueshmëri më të mirë. Kombinime të testuar për qartësi maksimale.</p>
+                        <p>Opsione të ndryshme të kontrastit dhe skemave ngjyrash për të përmirësuar lexueshmërinë për përdoruesit me shikim të kufizuar.</p>
                     </div>
                     
                     <div class="description-card">
-                        <div class="card-icon"><i class="fas fa-volume-up"></i></div>
-                        <h3>Tekst në Të Folur</h3>
-                        <p>Dëgjoni faqet shëkruar përmes zërit sintetik. Zgjedhje ndryshim të shpejtësisë dhe zërit.</p>
+                        <div class="card-icon">
+                            <i class="fas fa-mouse-pointer"></i>
+                        </div>
+                        <h3>Kursori i Zmadhuar</h3>
+                        <p>Kursor i madh dhe i theksuar për të ndihmuar në lëvizjen në faqe, me ndryshime ngjyre për vizibilitet më të mirë.</p>
                     </div>
                     
                     <div class="description-card">
-                        <div class="card-icon"><i class="fas fa-keyboard"></i></div>
+                        <div class="card-icon">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
                         <h3>Navigim me Tastierë</h3>
-                        <p>Përdorni tastierën për të naviguar të gjithë faqen. Mbështetje e plotë për përpurë me tastierë.</p>
+                        <p>Navigim i plotë i faqes duke përdorur tastierën, me shkurtesa të personalizuara për veprime të shpeshta.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-
+        <!-- Seksioni i Matricës së Aksesit -->
         <section class="matrix-section">
             <div class="container">
                 <h2 class="section-title">Matrica e Aksesit dhe Roleve</h2>
                 <p class="section-subtitle">Kjo matricë tregon se çfarë mund dhe çfarë nuk mund të bëjë çdo rol në aplikacionin tonë</p>
                 
                 <div class="matrix-table-container">
-                    <table class="matrix-table" role="table">
+                    <table class="matrix-table" aria-label="Matrica e aksesit për role të ndryshme në aplikacion">
                         <thead>
                             <tr>
-                                <th>Veçoritë</th>
-                                <th>Përdoruesi i Përgjithshëm</th>
-                                <th>Përdoruesi i Regjistruar</th>
-                                <th>Administratori</th>
+                                <th scope="col">Veçoria</th>
+                                <th scope="col">Përdorues i Përfundimtar</th>
+                                <th scope="col">Administrator</th>
+                                <th scope="col">Kufizim Etik/Ligjor</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Akseso Veçoritë Bazë</td>
-                                <td><i class="fas fa-check-circle"></i></td>
-                                <td><i class="fas fa-check-circle"></i></td>
-                                <td><i class="fas fa-check-circle"></i></td>
+                                <th scope="row">Shikimi i përmbajtjes</th>
+                                <td><i class="fas fa-check-circle"></i> Akses i plotë</td>
+                                <td><i class="fas fa-check-circle"></i> Vetëm për mbikëqyrje</td>
+                                <td>Përdoruesi ka qasje të plotë, admin vetëm për mbikëqyrje</td>
                             </tr>
                             <tr>
-                                <td>Ruaj Preferencat</td>
-                                <td><i class="fas fa-times-circle"></i></td>
-                                <td><i class="fas fa-check-circle"></i></td>
-                                <td><i class="fas fa-check-circle"></i></td>
+                                <th scope="row">Fshirja e llogarisë</th>
+                                <td><i class="fas fa-check-circle"></i> Kontroll i plotë</td>
+                                <td><i class="fas fa-check-circle"></i> Vetëm me kërkesë</td>
+                                <td>Përdoruesi ka kontrol të plotë mbi llogarinë e tij</td>
                             </tr>
                             <tr>
-                                <td>Raportim i Problemeve</td>
-                                <td><i class="fas fa-check-circle"></i></td>
-                                <td><i class="fas fa-check-circle"></i></td>
-                                <td><i class="fas fa-check-circle"></i></td>
+                                <th scope="row">Shikimi i të dhënave personale</th>
+                                <td><i class="fas fa-check-circle"></i> Vetëm të vetat</td>
+                                <td><i class="fas fa-check-circle"></i> Të anonimizuara/kufizuar</td>
+                                <td>Parimi i privatësisë në dizajn (privacy by design)</td>
                             </tr>
                             <tr>
-                                <td>Shkarkimi i të Dhënave</td>
-                                <td><i class="fas fa-times-circle"></i></td>
-                                <td><i class="fas fa-check-circle"></i></td>
-                                <td><i class="fas fa-check-circle"></i></td>
+                                <th scope="row">Moderimi i përmbajtjes</th>
+                                <td><i class="fas fa-times-circle"></i> Jo i lejuar</td>
+                                <td><i class="fas fa-check-circle"></i> I lejuar</td>
+                                <td>Vetëm administratorët e autorizuar mund të moderojnë përmbajtje</td>
                             </tr>
                             <tr>
-                                <td>Fshirja e Llogarisë</td>
-                                <td><i class="fas fa-times-circle"></i></td>
-                                <td><i class="fas fa-check-circle"></i></td>
-                                <td><i class="fas fa-check-circle"></i></td>
+                                <th scope="row">Shkarkimi i të dhënave</th>
+                                <td><i class="fas fa-check-circle"></i> Vetëm të vetat</td>
+                                <td><i class="fas fa-check-circle"></i> Të gjitha (të anonimizuara)</td>
+                                <td>Në përputhje me Rregulloren e Përgjithshme të Mbrojtjes së të Dhënave (GDPR)</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 
                 <div class="matrix-note">
-                    <p><strong>Shënim:</strong> Të drejtat mund të ndryshojnë sipas nevojave të sigurisë. Kontaktoni përkrahjen nëse keni pyetje.</p>
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Shënim:</strong> Të gjitha veçoritë janë dizajnuar duke respektuar parimet etike dhe ligjore të privatësisë, aksesueshmërisë dhe përgjegjshmërisë.</p>
                 </div>
             </div>
         </section>
 
-
+        <!-- Seksioni i Demonstruesit -->
         <section class="demo-section" id="demo">
             <div class="container">
                 <h2 class="section-title">Provoni veçoritë tona</h2>
                 
                 <div class="demo-container">
                     <div class="demo-text">
-                        <h3>Demo për Tekst në Të Folur</h3>
-                        <p id="demoText">AssistiveSense është një platformë inovatore e dizajnuar për të ndihmuar njerëzit me aftësi të kufizuara të shikimit. Ne jemi të përkushtuar ndaj përfshirjes dixhitale dhe aksesueshmërisë për të gjithë.</p>
+                        <h3>Provoni transformimin e tekstit në të folur</h3>
+                        <p id="demoText">This is an example of text that can be transformed into speech. Click the button below to hear how this feature works. You can adjust the speed and tone of the reading to your preferences.</p>
                         
                         <div class="demo-controls">
-                            <button id="speakBtn" class="btn btn-primary"><i class="fas fa-play"></i> Dëgjo Tekstin</button>
-                            <button id="pauseBtn" class="btn btn-secondary"><i class="fas fa-pause"></i> Pauzo</button>
-                            <button id="stopBtn" class="btn btn-secondary"><i class="fas fa-stop"></i> Ndalo</button>
+                            <button id="speakBtn" class="btn btn-primary"><i class="fas fa-play"></i> Dëgjo tekstin</button>
+                            <button id="pauseBtn" class="btn btn-outline"><i class="fas fa-pause"></i> Pauzë</button>
+                            <button id="stopBtn" class="btn btn-outline"><i class="fas fa-stop"></i> Ndalo</button>
                         </div>
                         
                         <div class="voice-settings">
-                            <label for="voiceSpeed">Shpejtësia e Zërit:</label>
+                            <label for="voiceSpeed">Shpejtësia e leximit:</label>
                             <input type="range" id="voiceSpeed" min="0.5" max="2" step="0.1" value="1">
-                            <span id="speedValue">1</span>x
+                            <span id="speedValue">1.0</span>
                         </div>
                     </div>
                     
                     <div class="demo-visual">
-                        <h3>Demo për Kontrast të Lartë</h3>
+                        <h3>Provoni kontrastin e lartë</h3>
+                        <p>Kjo kuti demonstron ndryshimin midis pamjes normale dhe asaj me kontrast të lartë.</p>
+                        
                         <div class="contrast-demo">
                             <div class="normal-contrast">
-                                <p><strong>Kontrast Normal</strong></p>
-                                <p>Teksti me kontrast të zakonshëm</p>
+                                <h4>Normal</h4>
+                                <p>Ky është një tekst me kontrast normal.</p>
                             </div>
                             <div class="high-contrast">
-                                <p><strong>Kontrast i Lartë</strong></p>
-                                <p>Teksti me kontrast të lartë - më i qartë</p>
+                                <h4>Kontrast i Lartë</h4>
+                                <p>Ky është i njëjti tekst me kontrast të lartë.</p>
                             </div>
                         </div>
-                        <button id="toggleContrastDemo" class="btn btn-primary"><i class="fas fa-adjust"></i> Ndërro Kontrastat</button>
+                        
+                        <button id="toggleContrastDemo" class="btn btn-secondary"><i class="fas fa-adjust"></i> Ndërro kontrastin e demonstruesit</button>
                     </div>
                 </div>
             </div>
         </section>
 
-
+        <!-- Seksioni i Regjistrimit -->
         <section class="signup-section">
             <div class="container">
                 <h2 class="section-title">Bashkohuni me komunitetin tonë</h2>
                 <p class="section-subtitle">Regjistrohuni falas për të përjetuar të gjitha veçoritë e aplikacionit tonë</p>
                 
                 <div class="signup-form">
-                    <form id="registrationForm" role="form">
+                    <form id="registrationForm">
                         <div class="form-group">
-                            <label for="signupEmail">Email:</label>
-                            <input type="email" id="signupEmail" name="email" required aria-required="true" placeholder="juaja@example.com">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="signupPassword">Fjalëkalimi:</label>
-                            <input type="password" id="signupPassword" name="password" required aria-required="true" placeholder="Fjalëkalimi i fortë">
+                            <label for="fullName">Emri i plotë:</label>
+                            <input type="text" id="fullName" name="fullName" required aria-required="true">
                         </div>
                         
                         <div class="form-group">
-                            <label for="signupConfirmPassword">Konfirmo Fjalëkalimin:</label>
-                            <input type="password" id="signupConfirmPassword" name="confirmPassword" required aria-required="true" placeholder="Ripeto fjalëkalimin">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
                         </div>
                         
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="privacyCheck" name="privacy" required>
-                            <label for="privacyCheck">Jam dakord me <a href="privacy.html">politikën e privatësisë</a></label>
+                        <div class="form-group">
+                            <label for="password">Fjalëkalimi:</label>
+                            <input type="password" id="password" name="password" required aria-required="true">
                         </div>
                         
-                        <button type="submit" class="btn btn-primary btn-large"><i class="fas fa-user-plus"></i> Regjistrohu Tani</button>
-                        
-                        <div class="privacy-features">
-                            <p><strong>Përfitimet e Regjistrimit:</strong></p>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Ruaj të gjitha preferencat tuaja</li>
-                                <li><i class="fas fa-check"></i> Akseso dashboarden tuaj personal</li>
-                                <li><i class="fas fa-check"></i> Shkarkoni të dhënat tuaja në çdo kohë</li>
-                                <li><i class="fas fa-check"></i> Kontroll i plotë mbi privatësinë</li>
-                            </ul>
+                        <div class="form-group">
+                            <label for="accessibilityNeeds">Nevojat për aksesueshmëri (opsionale):</label>
+                            <select id="accessibilityNeeds" name="accessibilityNeeds">
+                                <option value="">Zgjidhni opsionin...</option>
+                                <option value="lowVision">Shikim i kufizuar</option>
+                                <option value="colorBlindness">Verbëri ngjyrash</option>
+                                <option value="blindness">Verbëri e plotë</option>
+                                <option value="other">Tjetër</option>
+                            </select>
                         </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="privacyConsent" name="privacyConsent" required aria-required="true">
+                            <label for="privacyConsent">Pajtohem me <a href="privacy.html">politikën e privatësisë</a> dhe të dhënat e mia të përpunohen sipas kësaj politike.</label>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Dëshiroj të marr lajme dhe përditësime rreth aplikacionit.</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">Regjistrohu tani</button>
                     </form>
+                    
+                    <div class="signup-info">
+                        <h3><i class="fas fa-shield-alt"></i> Privatësia juaj është e rëndësishme për ne</h3>
+                        <p>Ne përdorim teknologji të avancuar për të mbrojtur të dhënat tuaja dhe ju ofrojmë kontroll të plotë mbi informacionin tuaj personal.</p>
+                        
+                        <ul class="privacy-features">
+                            <li><i class="fas fa-check-circle"></i> Mund të fshini llogarinë tuaj në çdo kohë</li>
+                            <li><i class="fas fa-check-circle"></i> Mund të shkarkoni të dhënat tuaja</li>
+                            <li><i class="fas fa-check-circle"></i> Kontrolloni çfarë informacioni ndajmë me palët e treta</li>
+                            <li><i class="fas fa-check-circle"></i> Pajtohuni ose çpajtohuni nga komunikimet tona</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Fundi i faqes -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3><i class="fas fa-eye"></i> AssistiveSense</h3>
-                    <p>Platforma për aksesueshmëri dixhitale dhe përfshirje</p>
+                    <div class="logo">
+                        <i class="fas fa-eye"></i>
+                        <span>AssistiveSense</span>
+                    </div>
+                    <p>Platformë inovative për ndihmë dhe aksesueshmëri të personave me aftësi të kufizuara të shikimit.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Navigim</h3>
+                    <h3>Lidhje të shpejta</h3>
                     <ul>
                         <li><a href="index.html">Kryefaqja</a></li>
                         <li><a href="features.html">Veçoritë</a></li>
-                        <li><a href="dashboard.html">Pulti</a></li>
-                        <li><a href="privacy.html">Privatësia</a></li>
+                        <li><a href="dashboard.html">Pulti i përdoruesit</a></li>
+                        <li><a href="privacy.html">Politika e privatësisë</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Ligjore</h3>
+                    <h3>Burime</h3>
                     <ul>
-                        <li><a href="privacy.html">Politika e Privatësisë</a></li>
-                        <li><a href="intellectual-property.html">Pronësia Intelektuale</a></li>
-                        <li><a href="reporting.html">Raportim</a></li>
-                        <li><a href="#">Kushtet e Shërbimit</a></li>
+                        <li><a href="reporting.html">Raportoni një problem</a></li>
+                        <li><a href="intellectual-property.html">Pronësia intelektuale</a></li>
+                        <li><a href="#">Përdorimi i cookies</a></li>
+                        <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Kontakt</h3>
+                    <h3>Kontakti</h3>
                     <ul>
-                        <li><a href="mailto:support@assistivesense.edu">support@assistivesense.edu</a></li>
-                        <li>+355 (0) 123 456 789</li>
-                        <li>Tiranë, Shqipëri</li>
+                        <li><i class="fas fa-envelope"></i> info@assistivesense.ks</li>
+                        <li><i class="fas fa-phone"></i> +355 4X XXX XXXX</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Prishtinë, Kosovë</li>
                     </ul>
                 </div>
             </div>
@@ -293,7 +334,6 @@
             </div>
         </div>
     </footer>
-
 
     <!-- Modal për hyrje -->
     <div class="modal" id="loginModal">
@@ -306,25 +346,25 @@
                 <form id="loginForm">
                     <div class="form-group">
                         <label for="loginEmail">Email:</label>
-                        <input type="email" id="loginEmail" name="email" required aria-required="true" placeholder="juaja@example.com">
+                        <input type="email" id="loginEmail" name="loginEmail" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="loginPassword">Fjalëkalimi:</label>
-                        <input type="password" id="loginPassword" name="password" required aria-required="true" placeholder="Fjalëkalimi juaj">
+                        <input type="password" id="loginPassword" name="loginPassword" required>
                     </div>
                     
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="rememberMe" name="remember">
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
                         <label for="rememberMe">Më mbaj mend</label>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary btn-full"><i class="fas fa-sign-in-alt"></i> Hyr</button>
+                    <button type="submit" class="btn btn-primary btn-full">Hyr</button>
                 </form>
                 
                 <div class="modal-footer">
-                    <p><a href="#">Harrove fjalëkalimin?</a></p>
-                    <p>Nuk ke llogari? <a href="#" id="goToRegister">Regjistrohu këtu</a></p>
+                    <p>Nuk keni llogari? <a href="#" id="goToRegister">Regjistrohu këtu</a></p>
+                    <p><a href="#">Keni harruar fjalëkalimin?</a></p>
                 </div>
             </div>
         </div>
@@ -340,7 +380,7 @@
             <div class="modal-body">
                 <p>Për të krijuar një llogari, përdorni formularin e regjistrimit në seksionin "Bashkohuni me komunitetin tonë" më sipër.</p>
                 <div class="modal-footer">
-                    <p>Keni tashmë llogari? <a href="#" id="goToLogin">Hyrni këtu</a></p>
+                    <button class="btn btn-secondary" id="closeRegisterModal">Mbyll</button>
                 </div>
             </div>
         </div>
