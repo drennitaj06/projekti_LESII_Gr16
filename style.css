@@ -1,3 +1,4 @@
+/* Reset dhe Stilizim Bazë */
 :root {
     --primary-color: #4361ee;
     --primary-dark: #3a56d4;
@@ -40,16 +41,28 @@ body.high-contrast {
     color: #fff;
 }
 
-body {
-    font-family: 'Open Sans', sans-serif;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    line-height: 1.6;
+body.high-contrast .transparency-notice,
+body.high-contrast .main-header,
+body.high-contrast .description-card,
+body.high-contrast .matrix-table,
+body.high-contrast .demo-container,
+body.high-contrast .signup-form,
+body.high-contrast .main-footer,
+body.high-contrast .modal-content {
+    background-color: #000;
+    color: #fff;
+    border-color: #fff;
 }
 
-body.high-contrast {
-    background-color: #000000;
-    color: #ffff00;
+body.high-contrast .btn {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #fff;
+}
+
+body.high-contrast .btn-outline {
+    background-color: transparent;
+    color: #fff;
 }
 
 .container {
@@ -57,6 +70,138 @@ body.high-contrast {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* Njoftimi i Transparencës */
+.transparency-notice {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.transparency-notice button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Menyja kryesore */
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0 10px;
+}
+
+body.high-contrast .main-header {
+    background-color: #000;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.logo i {
+    font-size: 1.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+}
+
+body.high-contrast .nav-menu a{
+    color: whitesmoke;
+}
+
+body.high-contrast .nav-menu a:hover, 
+body.high-contrast .nav-menu a.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.accessibility-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.accessibility-controls button {
+    background: var(--light-gray);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--dark-color);
+    transition: var(--transition);
+}
+
+.accessibility-controls button:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark-color);
 }
 
 /* Butonat */
@@ -118,108 +263,14 @@ body.high-contrast {
     width: 100%;
 }
 
-/* Njoftimi i Transparencës */
-.transparency-notice {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
-}
-
-.transparency-notice button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-/* Menyja kryesore */
-.main-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 0 10px;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-}
-
-.logo a {
-    text-decoration: none;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo i {
-    font-size: 2rem;
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-menu a:hover, .nav-menu a.active {
-    color: var(--primary-color);
-}
-
-.accessibility-controls {
-    display: flex;
-    gap: 15px;
-}
-
-.accessibility-controls button {
-    background-color: var(--light-gray);
-    border: none;
-    padding: 10px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s;
-}
-
-.accessibility-controls button:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
 /* Seksioni Hero */
 .hero-section {
     padding: 80px 0;
     background: linear-gradient(135deg, #f5f7ff 0%, #eef1ff 100%);
+}
+
+body.high-contrast .hero-section {
+    background: linear-gradient(135deg, #111 0%, #222 100%);
 }
 
 .hero-section .container {
@@ -242,10 +293,18 @@ body.high-contrast {
     color: var(--dark-color);
 }
 
+body.high-contrast .main-title {
+    color: #fff;
+}
+
 .hero-description {
     font-size: 1.2rem;
     color: var(--gray-color);
     margin-bottom: 30px;
+}
+
+body.high-contrast .hero-description {
+    color: #ccc;
 }
 
 .hero-buttons {
@@ -288,6 +347,10 @@ body.high-contrast {
     color: var(--dark-color);
 }
 
+body.high-contrast .section-title {
+    color: #fff;
+}
+
 .section-subtitle {
     text-align: center;
     color: var(--gray-color);
@@ -304,16 +367,32 @@ body.high-contrast {
     background-color: white;
 }
 
+body.high-contrast .description-section {
+    background-color: #000;
+}
+
 .matrix-section {
     background-color: var(--light-gray);
+}
+
+body.high-contrast .matrix-section {
+    background-color: #111;
 }
 
 .demo-section {
     background-color: white;
 }
 
+body.high-contrast .demo-section {
+    background-color: #000;
+}
+
 .signup-section {
     background-color: var(--light-gray);
+}
+
+body.high-contrast .signup-section {
+    background-color: #111;
 }
 
 /* Kartat e Përshkrimit */
@@ -336,6 +415,11 @@ body.high-contrast {
 .description-card:hover {
     transform: translateY(-10px);
     box-shadow: var(--box-shadow-hover);
+}
+
+body.high-contrast .description-card {
+    background-color: #111;
+    color: #fff;
 }
 
 .card-icon {
@@ -372,10 +456,20 @@ body.high-contrast {
     overflow: hidden;
 }
 
+body.high-contrast .matrix-table {
+    background-color: #111;
+    color: #fff;
+}
+
 .matrix-table th, .matrix-table td {
     padding: 20px;
     text-align: left;
     border-bottom: 1px solid var(--light-gray);
+}
+
+body.high-contrast .matrix-table th,
+body.high-contrast .matrix-table td {
+    border-bottom: 1px solid #333;
 }
 
 .matrix-table th {
@@ -384,8 +478,16 @@ body.high-contrast {
     font-weight: 600;
 }
 
+body.high-contrast .matrix-table th {
+    background-color: #222;
+}
+
 .matrix-table tbody tr:hover {
     background-color: rgba(67, 97, 238, 0.05);
+}
+
+body.high-contrast .matrix-table tbody tr:hover {
+    background-color: #222;
 }
 
 .matrix-table i.fa-check-circle {
@@ -401,6 +503,11 @@ body.high-contrast {
     padding: 20px;
     border-radius: var(--border-radius);
     border-left: 4px solid var(--warning-color);
+}
+
+body.high-contrast .matrix-note {
+    background-color: #222;
+    border-left: 4px solid #f8961e;
 }
 
 .matrix-note i {
@@ -429,11 +536,22 @@ body.high-contrast {
     box-shadow: var(--box-shadow);
 }
 
+body.high-contrast .demo-text,
+body.high-contrast .demo-visual {
+    background-color: #111;
+    color: #fff;
+}
+
 .demo-text h3, .demo-visual h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     margin-bottom: 20px;
     color: var(--dark-color);
+}
+
+body.high-contrast .demo-text h3,
+body.high-contrast .demo-visual h3 {
+    color: #fff;
 }
 
 .demo-controls {
@@ -447,6 +565,10 @@ body.high-contrast {
     margin-top: 25px;
     padding-top: 20px;
     border-top: 1px solid var(--light-gray);
+}
+
+body.high-contrast .voice-settings {
+    border-top: 1px solid #333;
 }
 
 .voice-settings label {
@@ -495,6 +617,11 @@ body.high-contrast {
     box-shadow: var(--box-shadow);
 }
 
+body.high-contrast .signup-form {
+    background-color: #111;
+    color: #fff;
+}
+
 @media (max-width: 768px) {
     .signup-form {
         grid-template-columns: 1fr;
@@ -518,6 +645,13 @@ body.high-contrast {
     border-radius: var(--border-radius);
     font-size: 1rem;
     transition: var(--transition);
+}
+
+body.high-contrast .form-group input,
+body.high-contrast .form-group select {
+    background-color: #222;
+    color: #fff;
+    border-color: #555;
 }
 
 .form-group input:focus, .form-group select:focus {
@@ -563,6 +697,10 @@ body.high-contrast {
     background-color: var(--dark-color);
     color: white;
     padding: 60px 0 20px;
+}
+
+body.high-contrast .main-footer {
+    background-color: #000;
 }
 
 .footer-content {
@@ -654,6 +792,11 @@ body.high-contrast {
     overflow: hidden;
 }
 
+body.high-contrast .modal-content {
+    background-color: #111;
+    color: #fff;
+}
+
 .modal-header {
     display: flex;
     justify-content: space-between;
@@ -661,6 +804,10 @@ body.high-contrast {
     padding: 20px 30px;
     background-color: var(--primary-color);
     color: white;
+}
+
+body.high-contrast .modal-header {
+    background-color: #222;
 }
 
 .modal-header h2 {
@@ -687,25 +834,8 @@ body.high-contrast {
     text-align: center;
 }
 
-.modal-header h2 {
-    margin: 0;
-}
-
-.close-modal {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-.modal-body {
-    padding: 30px;
-}
-
-.modal-footer {
-    padding-top: 20px;
-    border-top: 1px solid var(--light-gray);
+body.high-contrast .modal-footer {
+    border-top: 1px solid #333;
 }
 
 /* Përshtatje për ekrane të vegjël */
@@ -724,6 +854,10 @@ body.high-contrast {
         flex-direction: column;
         padding: 20px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    body.high-contrast .nav-menu {
+        background-color: #000;
     }
     
     .nav-menu.active {
