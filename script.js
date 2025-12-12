@@ -45,4 +45,30 @@ document.addEventListener('DOMContentLoaded', function() {
         currentFontSize = parseFloat(savedFontSize);
         htmlElement.style.fontSize = currentFontSize + 'px';
     }
+    
+    // Kontrolli i kontrastit të lartë
+    const highContrastBtn = document.getElementById('highContrast');
+    const body = document.body;
+    
+    highContrastBtn.addEventListener('click', function() {
+        body.classList.toggle('high-contrast');
+        
+        if (body.classList.contains('high-contrast')) {
+            localStorage.setItem('highContrast', 'enabled');
+            highContrastBtn.innerHTML = '<i class="fas fa-adjust"></i>';
+            highContrastBtn.setAttribute('aria-label', 'Kthehu në modalitetin normal');
+        } else {
+            localStorage.setItem('highContrast', 'disabled');
+            highContrastBtn.innerHTML = '<i class="fas fa-adjust"></i>';
+            highContrastBtn.setAttribute('aria-label', 'Ndrysho në kontrast të lartë');
+        }
+    });
+    
+    // Restaurimi i modalitetit të kontrastit
+    if (localStorage.getItem('highContrast') === 'enabled') {
+        body.classList.add('high-contrast');
+        highContrastBtn.innerHTML = '<i class="fas fa-adjust"></i>';
+        highContrastBtn.setAttribute('aria-label', 'Kthehu në modalitetin normal');
+    }
+
 });
