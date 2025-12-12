@@ -282,4 +282,146 @@ document.addEventListener('DOMContentLoaded', function() {
             registerModal.classList.remove('active');
         }
     });
+    
+    // Forma e regjistrimit
+    const registrationForm = document.getElementById('registrationForm');
+    
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Merr vlerat nga forma
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const privacyConsent = document.getElementById('privacyConsent').checked;
+            
+            // Validimi i thjeshtë
+            if (!privacyConsent) {
+                alert('Ju duhet të pajtoheni me politikën e privatësisë për të vazhduar!');
+                return;
+            }
+            
+            // Simulim i regjistrimit të suksesshëm
+            alert(`Faleminderit ${fullName}! Regjistrimi juaj është pranuar. Një email konfirmimi është dërguar në ${email}.`);
+            
+            // Reset formën
+            registrationForm.reset();
+            
+            // Shfaq mesazh për përdoruesit me nevojat e veçanta
+            const accessibilityNeeds = document.getElementById('accessibilityNeeds').value;
+            if (accessibilityNeeds) {
+                announceToScreenReader(`Faleminderit për regjistrimin. Ne do të përshtasim aplikacionin për nevojat tuaja të aksesueshmërisë: ${accessibilityNeeds}`);
+            }
+        });
+    }
+    
+    // Forma e hyrjes
+    const loginForm = document.getElementById('loginForm');
+    
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Simulim i hyrjes së suksesshëm
+            alert(`Mirë se vini përsëri! Ju jeni futur si ${email}.`);
+            if (loginModal) loginModal.classList.remove('active');
+            
+            // Ndrysho butonat e autentifikimit
+            if (loginBtn && registerBtn) {
+                loginBtn.innerHTML = '<i class="fas fa-user"></i> Llogaria ime';
+                registerBtn.innerHTML = '<i class="fas fa-sign-out-alt"></i> Dil';
+                
+                // Ndrysho funksionalitetin e butonave pas hyrjes
+                registerBtn.removeEventListener('click', handleRegisterClick);
+                registerBtn.addEventListener('click', handleLogoutClick);
+            }
+            
+            announceToScreenReader('Ju jeni futur me sukses në llogarinë tuaj');
+        });
+    }
+    
+    // Funksioni për trajtimin e klikimit të regjistrimit
+    function handleRegisterClick(e) {
+        e.preventDefault();
+        if (registerModal) registerModal.classList.add('active');
+        if (navMenu) navMenu.classList.remove('active');
+        if (hamburgerMenu) hamburgerMenu.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+    
+    // Funksioni për trajtimin e klikimit të daljes
+    function handleLogoutClick(e) {
+        e.preventDefault();
+        alert('Ju keni dalë me sukses nga llogaria juaj.');
+        
+        // Rivendos butonat e autentifikimit
+        if (loginBtn && registerBtn) {
+            loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Hyr';
+            registerBtn.innerHTML = '<i class="fas fa-user-plus"></i> Regjistrohu';
+            
+            // Rivendos funksionalitetin e butonave
+            registerBtn.removeEventListener('click', handleLogoutClick);
+            registerBtn.addEventListener('click', handleRegisterClick);
+        }
+        
+        announceToScreenReader('Ju keni dalë nga llogaria juaj');
+    }
+    
+    // Funksioni për njoftimet me lexim të ekranit
+    function announceToScreenReader(message) {
+        const announcement = document.createElement('div');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.setAttribute('aria-atomic', 'true');
+        announcement.style.position = 'absolute';
+        announcement.style.left = '-9999px';
+        announcement.textContent = message;
+        
+        document.body.appendChild(announcement);
+        
+        setTimeout(function() {
+            document.body.removeChild(announcement);
+        }, 1000);
+    }
+    
+    // Parandalimi i hyrjes me tastierë për elementët e fokusit
+    document.addEventListener('keydown', function(e) {
+        // Shtypja e Tab për lëvizjen midis elementeve
+        if (e.key === 'Tab') {
+            // Shto një klasë për të treguar fokusin e qartë
+            document.addEventListener('focusin', function(event) {
+                event.target.classList.add('keyboard-focus');
+            });
+            
+            document.addEventListener('focusout', function(event) {
+                event.target.classList.remove('keyboard-focus');
+            });
+        }
+    });
+    
+    // Shto stil për fokusin e tastierës
+    const style = document.createElement('style');
+    style.textContent = `
+        .keyboard-focus {
+            outline: 3px solid #25f795 !important;
+            outline-offset: 2px !important;
+        }
+        
+        .demo-high-contrast .normal-contrast {
+            background-color: black !important;
+            color: white !important;
+            border: 2px solid white !important;
+        }
+        
+        .demo-high-contrast .high-contrast {
+            background-color: yellow !important;
+            color: black !important;
+            border: 2px solid black !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    console.log("Të gjitha funksionet janë inicializuar me sukses!");
 });
