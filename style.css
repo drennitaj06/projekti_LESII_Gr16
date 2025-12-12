@@ -215,3 +215,66 @@ body.high-contrast {
     font-size: 1.5rem;
     cursor: pointer;
 }
+
+/* Seksioni Hero */
+.hero-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f5f7ff 0%, #eef1ff 100%);
+}
+
+.hero-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.main-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: var(--gray-color);
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-placeholder {
+    width: 100%;
+    max-width: 500px;
+    height: 350px;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: var(--box-shadow);
+}
+
+.image-placeholder i {
+    font-size: 8rem;
+    margin-bottom: 20px;
+}
