@@ -223,4 +223,63 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Modalet për hyrje dhe regjistrim
+    const loginBtn = document.getElementById('loginBtn');
+    const registerBtn = document.getElementById('registerBtn');
+    const loginModal = document.getElementById('loginModal');
+    const registerModal = document.getElementById('registerModal');
+    const closeModalButtons = document.querySelectorAll('.close-modal');
+    const closeRegisterModal = document.getElementById('closeRegisterModal');
+    const goToRegister = document.getElementById('goToRegister');
+    
+    if (loginBtn && loginModal) {
+        loginBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.classList.add('active');
+            if (navMenu) navMenu.classList.remove('active');
+            if (hamburgerMenu) hamburgerMenu.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+    }
+    
+    if (registerBtn && registerModal) {
+        registerBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.classList.add('active');
+            if (navMenu) navMenu.classList.remove('active');
+            if (hamburgerMenu) hamburgerMenu.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+    }
+    
+    closeModalButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            if (loginModal) loginModal.classList.remove('active');
+            if (registerModal) registerModal.classList.remove('active');
+        });
+    });
+    
+    if (closeRegisterModal && registerModal) {
+        closeRegisterModal.addEventListener('click', function() {
+            registerModal.classList.remove('active');
+        });
+    }
+    
+    if (goToRegister && loginModal && registerModal) {
+        goToRegister.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.classList.remove('active');
+            registerModal.classList.add('active');
+        });
+    }
+    
+    // Mbyll modalet kur klikohet jashtë
+    window.addEventListener('click', function(e) {
+        if (loginModal && e.target === loginModal) {
+            loginModal.classList.remove('active');
+        }
+        
+        if (registerModal && e.target === registerModal) {
+            registerModal.classList.remove('active');
+        }
+    });
 });
