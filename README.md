@@ -25,7 +25,7 @@ AssistiveSense can be used at home, in schools, community centers, or health ins
 Open the project folder in a static web server or file browser; the project is plain HTML/CSS/JS. Example (using Python 3 simple server):
 
 ```powershell
-cd "C:\Users\Admin\path...\AssistiveSense"
+cd "C:\Users\Admin\path...\projekti_LESII_Gr16"
 python -m http.server 8000
 ```
 Then open `http://localhost:8000` in your browser.
