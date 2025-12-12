@@ -173,4 +173,54 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Shfletuesi juaj nuk e mbështet tekstin në të folur. Ju lutemi përdorni një shfletues tjetër si Chrome, Edge ose Safari.');
         }
     });
+    
+    // Pauzo leximin
+    pauseBtn.addEventListener('click', function() {
+        if (speechSynthesis.speaking && !speechSynthesis.paused) {
+            speechSynthesis.pause();
+            console.log("Leximi u pauzua");
+        }
+    });
+    
+    // Ndalo leximin
+    stopBtn.addEventListener('click', function() {
+        if (speechSynthesis.speaking) {
+            speechSynthesis.cancel();
+            console.log("Leximi u ndal");
+        }
+    });
+    
+    // Demonstruesi i kontrastit
+    const toggleContrastDemo = document.getElementById('toggleContrastDemo');
+    const contrastDemo = document.querySelector('.contrast-demo');
+    
+    if (toggleContrastDemo && contrastDemo) {
+        toggleContrastDemo.addEventListener('click', function() {
+            contrastDemo.classList.toggle('demo-high-contrast');
+            
+            if (contrastDemo.classList.contains('demo-high-contrast')) {
+                this.innerHTML = '<i class="fas fa-adjust"></i> Kthehu në pamjen normale';
+            } else {
+                this.innerHTML = '<i class="fas fa-adjust"></i> Ndërro në kontrast të lartë';
+            }
+        });
+    }
+    
+    // Menyja hamburger për ekran të vegjël
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburgerMenu && navMenu) {
+        hamburgerMenu.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                hamburgerMenu.innerHTML = '<i class="fas fa-times"></i>';
+                hamburgerMenu.setAttribute('aria-label', 'Mbyll menynë');
+            } else {
+                hamburgerMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                hamburgerMenu.setAttribute('aria-label', 'Shfaq menynë');
+            }
+        });
+    }
 });
