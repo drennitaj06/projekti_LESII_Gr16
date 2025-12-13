@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veçoritë - AssistiveSense</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Njoftimi për transparencë -->
+    <div class="transparency-notice" id="transparencyNotice">
+        <p><i class="fas fa-info-circle"></i> Aktiviteti juaj regjistrohet për siguri dhe për të përmirësuar shërbimin. Për më shumë informacion, shikoni politikën tonë të privatësisë.</p>
+        <button onclick="closeTransparencyNotice()" aria-label="Mbylle njoftimin"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Menyja kryesore -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" aria-label="Kthehu në faqen kryesore">
+                    <i class="fas fa-eye"></i>
+                    <span>AssistiveSense</span>
+                </a>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Kryefaqja</a></li>
+                <li><a href="features.html" class="active"><i class="fas fa-cogs"></i> Veçoritë</a></li>
+                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Pulti</a></li>
+                <li><a href="privacy.html"><i class="fas fa-user-shield"></i> Privatësia</a></li>
+                <li><a href="reporting.html"><i class="fas fa-flag"></i> Raportim</a></li>
+                <li><a href="intellectual-property.html"><i class="fas fa-balance-scale"></i> Pronësia Intelektuale</a></li>
+            </ul>
+
+            <div class="accessibility-controls">
+                <button id="increaseFont" aria-label="Rrit madhësinë e fontit"><i class="fas fa-text-height"></i></button>
+                <button id="decreaseFont" aria-label="Zvogëlo madhësinë e fontit"><i class="fas fa-text-width"></i></button>
+                <button id="highContrast" aria-label="Ndrysho kontrastin"><i class="fas fa-adjust"></i></button>
+                <button id="textToSpeechToggle" aria-label="Ndez/Fik transformimin e tekstit në të folur"><i class="fas fa-volume-up"></i></button>
+            </div>
+
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Hyr</a>
+                <a href="#" class="btn btn-primary" id="registerBtn"><i class="fas fa-user-plus"></i> Regjistrohu</a>
+            </div>
+
+            <button class="hamburger" id="hamburgerMenu" aria-label="Shfaq/Fshih menynë">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seksioni Hero për Veçoritë -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="main-title">Veçoritë e Aplikacionit tonë</h1>
+                    <p class="hero-description">Eksploroni të gjitha veçoritë e dizajnuara posaçërisht për të ndihmuar personat me aftësi të kufizuara të shikimit në përdorimin e teknologjisë.</p>
+
+                    <div class="hero-buttons">
+                        <a href="#accessibility" class="btn btn-primary btn-large"><i class="fas fa-universal-access"></i> Veçoritë e Aksesueshmërisë</a>
+                        <a href="#assistive" class="btn btn-secondary btn-large"><i class="fas fa-hands-helping"></i> Teknologji Ndihmëse</a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-cogs"></i>
+                        <p>Ilustrim i veçorive të aplikacionit</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Veçorive të Aksesueshmërisë -->
+        <section class="description-section" id="accessibility">
+            <div class="container">
+                <h2 class="section-title">Veçoritë e Aksesueshmërisë</h2>
+                <p class="section-subtitle">Funksione të dizajnuara për të përmirësuar përvojën e përdoruesve me aftësi të kufizuara të shikimit</p>
+
+                <div class="description-grid">
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-volume-up"></i>
+                        </div>
+                        <h3>Tekst-në-Të-Folur i Avancuar</h3>
+                        <p>Lexoni çdo tekst në faqe me zë të natyrshëm, me opsione për ndryshimin e shpejtësisë, tonit dhe zgjedhjen e gjuhës.</p>
+                        <ul class="feature-details">
+                            <li>Mbështetje për shumë gjuhë</li>
+                            <li>Shpejtësi e rregullueshme</li>
+                            <li>Zgjedhje zërash të ndryshëm</li>
+                        </ul>
+                    </div>
+
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Skema të Personalizuara të Ngjyrave</h3>
+                        <p>Zgjidhni ndër skema të ndryshme ngjyrash për kontrast optimal sipas nevojave tuaja të shikimit.</p>
+                        <ul class="feature-details">
+                            <li>Kontrast i lartë bardh e zi</li>
+                            <li>Modaliteti i errët</li>
+                            <li>Kombinime ngjyrash për verbërinë e ngjyrave</li>
+                        </ul>
+                    </div>
+
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                        <h3>Zmadhim i Tekstit dhe Imazheve</h3>
+                        <p>Zmadhoni tekstin dhe imazhet deri në 400% pa humbur cilësinë ose prishjen e strukturës së faqes.</p>
+                        <ul class="feature-details">
+                            <li>Zmadhim i qëndrueshëm</li>
+                            <li>Mbështetje për zmadhim me miuz dhe tastierë</li>
+                            <li>Ruan strukturën e faqes</li>
+                        </ul>
+                    </div>
+
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <h3>Navigim i Plotë me Tastierë</h3>
+                        <p>Kontrolloni të gjitha funksionet e aplikacionit duke përdorur vetëm tastierën, me shkurtesa të personalizuara.</p>
+                        <ul class="feature-details">
+                            <li>Shkurtesa të personalizuara</li>
+                            <li>Navigim me tab dhe shigjeta</li>
+                            <li>Menu të kontrollueshme me tastierë</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Teknologjisë Ndihmëse -->
+        <section class="matrix-section" id="assistive">
+            <div class="container">
+                <h2 class="section-title">Teknologji Ndihmëse të Integruara</h2>
+                <p class="section-subtitle">Karakteristika të avancuara për të ndihmuar në përdorimin e pajisjeve teknologjike</p>
+
+                <div class="description-grid">
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-hand-pointer"></i>
+                        </div>
+                        <h3>Kursori i Personalizuar</h3>
+                        <p>Zgjidhni midis llojeve të ndryshme të kursorit - të madh, me ngjyra të ndryshme, ose me efekt të veçantë për vizibilitet më të mirë.</p>
+                    </div>
+
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-wave-square"></i>
+                        </div>
+                        <h3>Përshkrimi i Imazheve</h3>
+                        <p>Inteligjenca artificiale përshkruan automatikisht imazhet për përdoruesit me probleme të shikimit.</p>
+                    </div>
+
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-braille"></i>
+                        </div>
+                        <h3>Mbështetje për Braille</h3>
+                        <p>Shfaqja e tekstit në formatin Braille për përdoruesit që përdorin pajisje Braille.</p>
+                    </div>
+
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h3>Udhëzime Audio për Navigim</h3>
+                        <p>Udhëzime audio që ju udhëzojnë nëpër aplikacion dhe ju ndihmojnë të gjeni shpejt atë që kërkoni.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Personalizimit -->
+        <section class="demo-section" id="personalization">
+            <div class="container">
+                <h2 class="section-title">Personalizimi sipas Preferencave</h2>
+                <p class="section-subtitle">Rregulloni aplikacionin sipas nevojave tuaja specifike</p>
+
+                <div class="personalization-demo">
+                    <div class="personalization-options">
+                        <h3><i class="fas fa-sliders-h"></i> Rregulloni Preferencat tuaja</h3>
+
+                        <div class="option-group">
+                            <label for="fontSizeSelect">Madhësia e fontit:</label>
+                            <select id="fontSizeSelect" class="option-select">
+                                <option value="small">E vogël</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="large">E madhe</option>
+                                <option value="xlarge">Shumë e madhe</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label for="contrastSelect">Skema e kontrastit:</label>
+                            <select id="contrastSelect" class="option-select">
+                                <option value="normal">Normal</option>
+                                <option value="high">Kontrast i lartë</option>
+                                <option value="dark">Modaliteti i errët</option>
+                                <option value="yellow">E zezë mbi të verdhë</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label for="enableCustomCursor"><input type="checkbox" id="enableCustomCursor"> Aktivizo kursor të personalizuar</label>
+                        </div>
+
+                        <div class="option-group">
+                            <label for="cursorSize">Madhësia e kursorit:</label>
+                            <input type="range" id="cursorSize" min="1" max="5" step="1" value="2" aria-label="Madhësia e kursorit">
+                            <div class="cursor-size-display">
+                                <span class="cursor-small">I vogël</span>
+                                <span class="cursor-large">I madh</span>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label for="speechSpeed">Shpejtësia e të folurit:</label>
+                            <input type="range" id="speechSpeed" min="0.5" max="2" step="0.1" value="1" aria-label="Shpejtësia e të folurit">
+                            <div class="speed-display">
+                                <span>I ngadaltë</span>
+                                <span>I shpejtë</span>
+                            </div>
+                        </div>
+
+                        <!-- File upload for text and TTS controls -->
+                        <div class="option-group" aria-live="polite">
+                            <label for="textFileInput">Ngarko një skedar .txt për ta lexuar:</label>
+                            <input type="file" id="textFileInput" accept=".txt" aria-label="Ngarko skedarin tekst">
+                            <div style="margin-top:10px;">
+                                <button class="btn btn-primary" id="playFileBtn" aria-label="Luaj tekstin e skedarit"><i class="fas fa-play"></i> Luaj</button>
+                                <button class="btn btn-outline" id="pauseFileBtn" aria-label="Pauzo"><i class="fas fa-pause"></i> Pauzë</button>
+                                <button class="btn btn-outline" id="stopFileBtn" aria-label="Ndalo"><i class="fas fa-stop"></i> Ndalo</button>
+                                <button class="btn btn-outline" id="clearFileBtn" aria-label="Hiq skedarin"><i class="fas fa-trash"></i> Hiq</button>
+                            </div>
+                            <small id="fileStatus" style="display:block;margin-top:8px;color:#666;">Nuk ka skedar të ngarkuar.</small>
+                        </div>
+
+                        <button class="btn btn-primary" id="savePreferences"><i class="fas fa-save"></i> Ruaj Preferencat</button>
+                        <button class="btn btn-outline" id="resetPreferences"><i class="fas fa-undo"></i> Rivendos Parazgjedhjet</button>
+                    </div>
+
+                    <div class="personalization-preview">
+                        <h3><i class="fas fa-eye"></i> Pamja paraprake</h3>
+                        <div class="preview-content" id="previewContent" tabindex="0" aria-live="polite">
+                            <h4>Titulli i shembullit</h4>
+                            <p>Ky është një shembull i tekstit që do të duket siç e keni konfiguruar. Kur të ndryshoni parametrat, pamja e këtij teksti do të ndryshojë në kohë reale.</p>
+                            <button class="preview-button">Butoni i shembullit</button>
+                        </div>
+
+                        <div class="preview-note">
+                            <p><i class="fas fa-info-circle"></i> <strong>Shënim:</strong> Të gjitha rregullimet ruhen automatikisht në llogarinë tuaj dhe aplikohen në të gjitha pajisjet ku hyni.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Pajisjeve të Ndërlikuara (i pacenuar për ndryshim) -->
+        <section class="signup-section">
+            <div class="container">
+                <h2 class="section-title">Pajisje të Ndërlikuara</h2>
+                <p class="section-subtitle">Aplikacioni ynë funksionon në mënyrë të përkryer me pajisjet më të njohura të aksesueshmërisë</p>
+
+                <div class="devices-grid">
+                    <div class="device-card">
+                        <div class="device-icon">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <h3>Tableta dhe Telefonat</h3>
+                        <p>Versioni i plotë i aplikacionit për pajisjet mobile me ekran prekës, me geste të specializuara për aksesueshmëri.</p>
+                    </div>
+
+                    <div class="device-card">
+                        <div class="device-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>Kompjuterët</h3>
+                        <p>Versioni i plotë për desktop me integrim të plotë me sistemet operativ si Windows, macOS dhe Linux.</p>
+                    </div>
+
+                    <div class="device-card">
+                        <div class="device-icon">
+                            <i class="fas fa-braille"></i>
+                        </div>
+                        <h3>Pajisjet Braille</h3>
+                        <p>Mbështetje e plotë për pajisjet e shtypjes Braille dhe terminalet Braille për përdoruesit me verbëri të plotë.</p>
+                    </div>
+
+                    <div class="device-card">
+                        <div class="device-icon">
+                            <i class="fas fa-assistive-listening-systems"></i>
+                        </div>
+                        <h3>Pajisjet Audio</h3>
+                        <p>Integrim me kokëphone dhe sisteme audio për përdorim optimal të funksionit tekst-në-të-folur.</p>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h3>Gati për të filluar?</h3>
+                    <p>Regjistrohuni falas tani për të përjetuar të gjitha këto veçori dhe për të personalizuar aplikacionin sipas nevojave tuaja specifike.</p>
+                    <a href="index.html#registrationForm" class="btn btn-primary btn-large"><i class="fas fa-user-plus"></i> Regjistrohu Tani</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Fundi i faqes -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-eye"></i>
+                        <span>AssistiveSense</span>
+                    </div>
+                    <p>Platformë inovative për ndihmë dhe aksesueshmëri të personave me aftësi të kufizuara të shikimit.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Lidhje të shpejta</h3>
+                    <ul>
+                        <li><a href="index.html">Kryefaqja</a></li>
+                        <li><a href="features.html">Veçoritë</a></li>
+                        <li><a href="dashboard.html">Pulti i përdoruesit</a></li>
+                        <li><a href="privacy.html">Politika e privatësisë</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Burime</h3>
+                    <ul>
+                        <li><a href="reporting.html">Raportoni një problem</a></li>
+                        <li><a href="intellectual-property.html">Pronësia intelektuale</a></li>
+                        <li><a href="#">Përdorimi i cookies</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Kontakti</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@assistivesense.ks</li>
+                        <li><i class="fas fa-phone"></i> +355 4X XXX XXXX</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Prishtinë, Kosovë</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 AssistiveSense - Të gjitha të drejtat e rezervuara. Ky aplikacion është projekt akademik.</p>
+                <p><a href="intellectual-property.html">Informacioni i detajuar mbi pronësinë intelektuale dhe licencat</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modalet (të njëjta si në index.html) -->
+    <div class="modal" id="loginModal"> ... </div>
+    <div class="modal" id="registerModal"> ... </div>
+
+    <!-- Custom cursor element -->
+    <div id="customCursor" aria-hidden="true"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Skripta shtesë për faqen e veçorive (përditësuar: TTS nga file + custom cursor)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements for preferences
+            const fontSizeSelect = document.getElementById('fontSizeSelect');
+            const contrastSelect = document.getElementById('contrastSelect');
+            const cursorSize = document.getElementById('cursorSize');
+            const speechSpeed = document.getElementById('speechSpeed');
+            const savePreferencesBtn = document.getElementById('savePreferences');
+            const resetPreferencesBtn = document.getElementById('resetPreferences');
+            const previewContent = document.getElementById('previewContent');
+            const enableCustomCursor = document.getElementById('enableCustomCursor');
+
+            // File + TTS elements
+            const textFileInput = document.getElementById('textFileInput');
+            const playFileBtn = document.getElementById('playFileBtn');
+            const pauseFileBtn = document.getElementById('pauseFileBtn');
+            const stopFileBtn = document.getElementById('stopFileBtn');
+            const clearFileBtn = document.getElementById('clearFileBtn');
+            const fileStatus = document.getElementById('fileStatus');
+
+            // Custom cursor element
+            const customCursor = document.getElementById('customCursor');
+
+            // SpeechSynthesis state
+            let utterance = null;
+            let loadedFileText = localStorage.getItem('prefUploadedText') || '';
+
+            // Initialize preview and TTS if file saved
+            if (loadedFileText) {
+                previewContent.innerText = loadedFileText;
+                fileStatus.textContent = 'Tekst i ngarkuar (i ruajtur).';
+            }
+
+            // Update preview appearance based on preferences
+            function updatePreview() {
+                // Font size
+                const fontSizeValue = fontSizeSelect.value;
+                let fontSize = '1rem';
+                if (fontSizeValue === 'small') fontSize = '0.8rem';
+                else if (fontSizeValue === 'medium') fontSize = '1rem';
+                else if (fontSizeValue === 'large') fontSize = '1.3rem';
+                else if (fontSizeValue === 'xlarge') fontSize = '1.8rem';
+
+                // Contrast
+                const contrastValue = contrastSelect.value;
+                let backgroundColor = '#fff';
+                let textColor = '#212529';
+                let borderColor = 'var(--light-gray)';
+
+                if (contrastValue === 'high') {
+                    backgroundColor = '#000';
+                    textColor = '#fff';
+                    borderColor = '#fff';
+                } else if (contrastValue === 'dark') {
+                    backgroundColor = '#121212';
+                    textColor = '#e0e0e0';
+                    borderColor = '#333';
+                } else if (contrastValue === 'yellow') {
+                    backgroundColor = '#ffff00';
+                    textColor = '#000';
+                    borderColor = '#000';
+                }
+
+                // Apply changes to preview
+                previewContent.style.fontSize = fontSize;
+                previewContent.style.backgroundColor = backgroundColor;
+                previewContent.style.color = textColor;
+                previewContent.style.borderColor = borderColor;
+
+                // Preview button style
+                const previewButton = previewContent.querySelector('.preview-button');
+                if (previewButton) {
+                    previewButton.style.backgroundColor = contrastValue === 'high' ? '#fff' : 'var(--primary-color)';
+                    previewButton.style.color = contrastValue === 'high' ? '#000' : '#fff';
+                    previewButton.style.borderColor = borderColor;
+                }
+
+                // Apply cursor resizing if custom cursor enabled
+                applyCursorSize();
+            }
+
+            // Cursor logic
+            function applyCursorSize() {
+                const enabled = enableCustomCursor.checked;
+                const sizeValue = parseInt(cursorSize.value || 2, 10);
+                // Map range 1..5 -> pixel sizes (small to large)
+                const sizeMap = {1: 12, 2: 18, 3: 28, 4: 40, 5: 56};
+                const px = sizeMap[sizeValue] || 18;
+
+                if (enabled) {
+                    customCursor.style.display = 'block';
+                    customCursor.style.width = px + 'px';
+                    customCursor.style.height = px + 'px';
+                    customCursor.style.borderWidth = Math.max(2, Math.round(px * 0.12)) + 'px';
+                    document.documentElement.style.cursor = 'none'; // hide native cursor for clarity
+                } else {
+                    customCursor.style.display = 'none';
+                    document.documentElement.style.cursor = ''; // restore
+                }
+            }
+
+            // Track mouse to position custom cursor
+            window.addEventListener('mousemove', function(e) {
+                if (customCursor.style.display === 'block') {
+                    customCursor.style.left = e.clientX + 'px';
+                    customCursor.style.top = e.clientY + 'px';
+                }
+            });
+
+            // File handling and TTS
+            function updateFileStatus(msg) {
+                fileStatus.textContent = msg;
+            }
+
+            textFileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (!file) {
+                    updateFileStatus('Nuk ka skedar të ngarkuar.');
+                    return;
+                }
+                if (!file.name.toLowerCase().endsWith('.txt')) {
+                    updateFileStatus('Ju lutem ngarkoni vetëm skedarë .txt.');
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = function(ev) {
+                    const text = String(ev.target.result || '');
+                    loadedFileText = text;
+                    // Show content in preview preserving styles
+                    previewContent.innerText = text;
+                    // Save to localStorage as fallback
+                    try { localStorage.setItem('prefUploadedText', text); } catch (err) {}
+                    updateFileStatus('Skedari u ngarkua: ' + file.name);
+                };
+                reader.onerror = function() {
+                    updateFileStatus('Gabim gjatë leximin e skedarit.');
+                };
+                reader.readAsText(file, 'UTF-8');
+            });
+
+            // Play function
+            function playLoadedText() {
+                if (!loadedFileText || !loadedFileText.trim()) {
+                    updateFileStatus('Nuk ka tekst për t\'u lexuar. Ngarkoni një skedar .txt.');
+                    return;
+                }
+                if (!('speechSynthesis' in window)) {
+                    updateFileStatus('Text-to-speech nuk mbështetet në këtë shfletues.');
+                    return;
+                }
+                // If paused previously, resume
+                if (speechSynthesis.paused && speechSynthesis.speaking) {
+                    speechSynthesis.resume();
+                    return;
+                }
+
+                // Cancel any existing utterance
+                speechSynthesis.cancel();
+
+                utterance = new SpeechSynthesisUtterance(loadedFileText);
+                // Use selected speed
+                let rate = parseFloat(speechSpeed.value || 1);
+                utterance.rate = rate;
+                // Optionally set voice (choose default or a language-matching voice)
+                // Try to choose a voice using the page language
+                const voices = speechSynthesis.getVoices();
+                if (voices && voices.length) {
+                    // try to find a voice that matches the document language (sq) first, fallback to default
+                    const match = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('sq'));
+                    utterance.voice = match || voices[0];
+                }
+                utterance.onstart = function() { updateFileStatus('Po lexohet...'); };
+                utterance.onend = function() { updateFileStatus('Leximi përfundoi.'); };
+                utterance.onerror = function() { updateFileStatus('Gabim gjatë leximit me TTS.'); };
+
+                speechSynthesis.speak(utterance);
+            }
+
+            function pauseLoadedText() {
+                if ('speechSynthesis' in window && speechSynthesis.speaking) {
+                    speechSynthesis.pause();
+                    updateFileStatus('Leximi u pauzua.');
+                }
+            }
+
+            function stopLoadedText() {
+                if ('speechSynthesis' in window) {
+                    speechSynthesis.cancel();
+                    updateFileStatus('Leximi u ndal.');
+                }
+            }
+
+            clearFileBtn.addEventListener('click', function() {
+                textFileInput.value = '';
+                loadedFileText = '';
+                previewContent.innerHTML = '<h4>Titulli i shembullit</h4><p>Ky është një shembull i tekstit që do të duket siç e keni konfiguruar. Kur të ndryshoni parametrat, pamja e këtij teksti do të ndryshojë në kohë reale.</p><button class="preview-button">Butoni i shembullit</button>';
+                try { localStorage.removeItem('prefUploadedText'); } catch (err) {}
+                updateFileStatus('Skedari u hoq.');
+            });
+
+            playFileBtn.addEventListener('click', function() { playLoadedText(); });
+            pauseFileBtn.addEventListener('click', function() { pauseLoadedText(); });
+            stopFileBtn.addEventListener('click', function() { stopLoadedText(); });
+
+            // Ngarko preferencat e ruajtura
+            function loadSavedPreferences() {
+                const savedFontSize = localStorage.getItem('prefFontSize');
+                const savedContrast = localStorage.getItem('prefContrast');
+                const savedCursorSize = localStorage.getItem('prefCursorSize');
+                const savedSpeechSpeed = localStorage.getItem('prefSpeechSpeed');
+                const savedEnableCursor = localStorage.getItem('prefEnableCustomCursor');
+
+                if (savedFontSize) fontSizeSelect.value = savedFontSize;
+                if (savedContrast) contrastSelect.value = savedContrast;
+                if (savedCursorSize) cursorSize.value = savedCursorSize;
+                if (savedSpeechSpeed) speechSpeed.value = savedSpeechSpeed;
+                if (savedEnableCursor) enableCustomCursor.checked = (savedEnableCursor === 'true');
+
+                updatePreview();
+            }
+
+            // Ruaj preferencat
+            savePreferencesBtn.addEventListener('click', function() {
+                localStorage.setItem('prefFontSize', fontSizeSelect.value);
+                localStorage.setItem('prefContrast', contrastSelect.value);
+                localStorage.setItem('prefCursorSize', cursorSize.value);
+                localStorage.setItem('prefSpeechSpeed', speechSpeed.value);
+                localStorage.setItem('prefEnableCustomCursor', enableCustomCursor.checked ? 'true' : 'false');
+
+                alert('Preferencat tuaja janë ruajtur me sukses!');
+                updatePreview();
+            });
+
+            // Rivendos preferencat
+            resetPreferencesBtn.addEventListener('click', function() {
+                fontSizeSelect.value = 'medium';
+                contrastSelect.value = 'normal';
+                cursorSize.value = '2';
+                speechSpeed.value = '1';
+                enableCustomCursor.checked = false;
+
+                localStorage.removeItem('prefFontSize');
+                localStorage.removeItem('prefContrast');
+                localStorage.removeItem('prefCursorSize');
+                localStorage.removeItem('prefSpeechSpeed');
+                localStorage.removeItem('prefEnableCustomCursor');
+
+                updatePreview();
+                alert('Preferencat janë rivendosur në parazgjedhjet e sistemit.');
+            });
+
+            // Live update
+            fontSizeSelect.addEventListener('change', updatePreview);
+            contrastSelect.addEventListener('change', updatePreview);
+            cursorSize.addEventListener('input', function() {
+                applyCursorSize();
+            });
+            speechSpeed.addEventListener('input', function() {
+                // We will use this value when playing TTS
+                console.log('Shpejtësia e të folurit është ndryshuar në: ' + this.value);
+            });
+            enableCustomCursor.addEventListener('change', applyCursorSize);
+
+            // Initial load
+            loadSavedPreferences();
+
+            // Ensure voices are loaded (some browsers load asynchronously)
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.onvoiceschanged = function() {
+                    // no-op but ensures voices are populated for later selection
+                };
+            }
+        });
+    </script>
+    
+    <style>
+        /* Stilizime shtesë për faqen e veçorive */
+        .feature-details {
+            list-style: none;
+            margin-top: 15px;
+            padding-left: 0;
+        }
+        
+        .feature-details li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .feature-details li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        .personalization-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .personalization-demo {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .personalization-options, .personalization-preview {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        body.high-contrast .personalization-options,
+        body.high-contrast .personalization-preview {
+            background-color: #111;
+            color: #fff;
+        }
+        
+        .option-group {
+            margin-bottom: 25px;
+        }
+        
+        .option-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .option-select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+        
+        body.high-contrast .option-select {
+            background-color: #222;
+            color: #fff;
+            border-color: #555;
+        }
+        
+        .cursor-size-display, .speed-display {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+        
+        .preview-content {
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 20px;
+            min-height: 200px;
+            transition: all 0.3s ease;
+        }
+        
+        .preview-content h4 {
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .preview-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        
+        .preview-note {
+            background-color: rgba(67, 97, 238, 0.1);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+        }
+        
+        .devices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .device-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .device-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        body.high-contrast .device-card {
+            background-color: #111;
+            color: #fff;
+        }
+        
+        .device-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .device-card h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+        }
+        
+        .cta-box {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .cta-box h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .cta-box p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            font-size: 1.1rem;
+        }
+    </style>
+</body>
+</html>
