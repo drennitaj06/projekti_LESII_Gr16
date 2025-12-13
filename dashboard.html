@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulti - AssistiveSense</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Njoftimi për transparencë -->
+    <div class="transparency-notice" id="transparencyNotice">
+        <p><i class="fas fa-info-circle"></i> Aktiviteti juaj regjistrohet për siguri dhe për të përmirësuar shërbimin. Për më shumë informacion, shikoni politikën tonë të privatësisë.</p>
+        <button onclick="closeTransparencyNotice()" aria-label="Mbylle njoftimin"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Menyja kryesore -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" aria-label="Kthehu në faqen kryesore">
+                    <i class="fas fa-eye"></i>
+                    <span>AssistiveSense</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Kryefaqja</a></li>
+                <li><a href="features.html"><i class="fas fa-cogs"></i> Veçoritë</a></li>
+                <li><a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Pulti</a></li>
+                <li><a href="privacy.html"><i class="fas fa-user-shield"></i> Privatësia</a></li>
+                <li><a href="reporting.html"><i class="fas fa-flag"></i> Raportim</a></li>
+                <li><a href="intellectual-property.html"><i class="fas fa-balance-scale"></i> Pronësia Intelektuale</a></li>
+            </ul>
+            
+            <div class="accessibility-controls">
+                <button id="increaseFont" aria-label="Rrit madhësinë e fontit"><i class="fas fa-text-height"></i></button>
+                <button id="decreaseFont" aria-label="Zvogëlo madhësinë e fontit"><i class="fas fa-text-width"></i></button>
+                <button id="highContrast" aria-label="Ndrysho kontrastin"><i class="fas fa-adjust"></i></button>
+                <button id="textToSpeechToggle" aria-label="Ndez/Fik transformimin e tekstit në të folur"><i class="fas fa-volume-up"></i></button>
+            </div>
+            
+            <div class="user-profile">
+                <div class="user-dropdown">
+                    <button class="user-dropdown-toggle" id="userDropdownToggle">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Përdoruesi</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown-menu" id="userDropdownMenu">
+                        <a href="#"><i class="fas fa-user"></i> Profili im</a>
+                        <a href="#"><i class="fas fa-cog"></i> Rregullimet</a>
+                        <a href="privacy.html#dataControl"><i class="fas fa-download"></i> Shkarko të dhënat</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Dil</a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="hamburger" id="hamburgerMenu" aria-label="Shfaq/Fshih menynë">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Pulti i Përdoruesit -->
+        <section class="dashboard-section">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h1 class="main-title">Pulti i Përdoruesit</h1>
+                    <p class="dashboard-subtitle">Mirë se vini përsëri, <strong id="displayFullName">Përdoruesi I.A.</strong>. Këtu mund të menaxhoni llogarinë tuaj dhe të përdorni veçoritë e aplikacionit.</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <!-- Kolona e majtë: Statistika dhe Veçoritë e Shpejta -->
+                    <div class="dashboard-column">
+                        <div class="dashboard-card stats-card">
+                            <h2><i class="fas fa-chart-line"></i> Statistikat tuaja</h2>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-value">12</div>
+                                    <div class="stat-label">Ditë përdorimi</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">47</div>
+                                    <div class="stat-label">Faqe të lexuara</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">5.2h</div>
+                                    <div class="stat-label">Kohë totale</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">24</div>
+                                    <div class="stat-label">Veçori të përdorura</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card quick-features-card">
+                            <h2><i class="fas fa-bolt"></i> Veçori të Shpejta</h2>
+                            <div class="quick-features">
+                                <button class="quick-feature-btn" id="quickReader">
+                                    <i class="fas fa-book-reader"></i>
+                                    <span>Lexuesi i Shpejtë</span>
+                                </button>
+                                <button class="quick-feature-btn" id="quickContrast">
+                                    <i class="fas fa-adjust"></i>
+                                    <span>Ndrysho Kontrastin</span>
+                                </button>
+                                <button class="quick-feature-btn" id="quickZoom">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Zmadho Faqen</span>
+                                </button>
+                                <button class="quick-feature-btn" id="quickVoice">
+                                    <i class="fas fa-microphone"></i>
+                                    <span>Regjistro Zërin</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card recent-activity-card">
+                            <h2><i class="fas fa-history"></i> Aktiviteti i Fundit</h2>
+                            <ul class="activity-list">
+                                <li>
+                                    <i class="fas fa-check-circle activity-icon success"></i>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Përdorur tekst-në-të-folur</div>
+                                        <div class="activity-time">Para 2 orësh</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-palette activity-icon info"></i>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Ndryshuar skemën e ngjyrave</div>
+                                        <div class="activity-time">Para 1 dite</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-save activity-icon warning"></i>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Ruajtur preferencat</div>
+                                        <div class="activity-time">Para 3 ditësh</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-user-plus activity-icon primary"></i>
+                                    <div class="activity-content">
+                                        <div class="activity-title">Regjistruar në aplikacion</div>
+                                        <div class="activity-time">Para 12 ditësh</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Kolona e djathtë: Menaxhimi i Llogarisë -->
+                    <div class="dashboard-column">
+                        <div class="dashboard-card account-card">
+                            <h2><i class="fas fa-user-cog"></i> Menaxhimi i Llogarisë</h2>
+                            
+                            <div class="account-section">
+                                <h3><i class="fas fa-user"></i> Informacioni Personal</h3>
+                                <div class="account-info">
+                                    <div class="info-row">
+                                        <span class="info-label">Emri i plotë:</span>
+                                        <span class="info-value" id="fullNameValue">Përdoruesi I.A.</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Email:</span>
+                                        <span class="info-value" id="emailValue">perdorues@shikimia.al</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Data e regjistrimit:</span>
+                                        <span class="info-value" id="regDateValue">15 Nëntor 2023</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Nevojat për aksesueshmëri:</span>
+                                        <span class="info-value" id="needsValue">Shikim i kufizuar</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline btn-small" id="editInfoBtn"><i class="fas fa-edit"></i> Ndrysho informacionin</button>
+                            </div>
+                            
+                            <div class="account-section">
+                                <h3><i class="fas fa-shield-alt"></i> Siguria dhe Privatësia</h3>
+                                <div class="privacy-options">
+                                    <div class="privacy-option">
+                                        <div class="option-info">
+                                            <h4>Shkarkoni të dhënat tuaja</h4>
+                                            <p>Merrni një kopje të të gjithë të dhënave tuaja në një format të lexueshëm.</p>
+                                        </div>
+                                        <button class="btn btn-outline btn-small" id="downloadDataBtn"><i class="fas fa-download"></i> Shkarko</button>
+                                    </div>
+                                    
+                                    <div class="privacy-option">
+                                        <div class="option-info">
+                                            <h4>Fshini llogarinë tuaj</h4>
+                                            <p>Fshini përgjithmonë llogarinë tuaj dhe të gjitha të dhënat e lidhura me të.</p>
+                                        </div>
+                                        <button class="btn btn-danger btn-small" id="deleteAccountBtn"><i class="fas fa-trash-alt"></i> Fshi Llogarinë</button>
+                                    </div>
+                                    
+                                    <div class="privacy-option">
+                                        <div class="option-info">
+                                            <h4>Privatësia dhe Cookies</h4>
+                                            <p>Menaxhoni preferencat tuaja për privatësinë dhe përdorimin e cookies.</p>
+                                        </div>
+                                        <a href="privacy.html" class="btn btn-outline btn-small"><i class="fas fa-cookie-bite"></i> Menaxho</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card preferences-card">
+                            <h2><i class="fas fa-sliders-h"></i> Preferencat tuaja</h2>
+                            
+                            <div class="preferences-list">
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Madhësia e fontit</h4>
+                                        <p>Aktualisht: <strong id="prefFont">E madhe</strong></p>
+                                    </div>
+                                    <div class="preference-status active">
+                                        <i class="fas fa-check"></i> Aktiv
+                                    </div>
+                                </div>
+                                
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Kontrasti</h4>
+                                        <p>Aktualisht: <strong id="prefContrast">Kontrast i lartë</strong></p>
+                                    </div>
+                                    <div class="preference-status active">
+                                        <i class="fas fa-check"></i> Aktiv
+                                    </div>
+                                </div>
+                                
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Tekst-në-Të-Folur</h4>
+                                        <p>Aktualisht: <strong id="prefTTS">I aktivizuar</strong></p>
+                                    </div>
+                                    <div class="preference-status active">
+                                        <i class="fas fa-check"></i> Aktiv
+                                    </div>
+                                </div>
+                                
+                                <div class="preference-item">
+                                    <div class="preference-info">
+                                        <h4>Navigimi me Tastierë</h4>
+                                        <p>Aktualisht: <strong id="prefKeyNav">I paaktivizuar</strong></p>
+                                    </div>
+                                    <div class="preference-status">
+                                        <i class="fas fa-times"></i> Jo aktiv
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-full" id="managePreferencesBtn">
+                                <i class="fas fa-cog"></i> Menaxho të gjitha preferencat
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Njoftimi për kontrollin e privatësisë -->
+                <div class="privacy-reminder">
+                    <h3><i class="fas fa-info-circle"></i> Kujtesë për privatësinë tuaj</h3>
+                    <p>Ju keni kontroll të plotë mbi të dhënat tuaja. Në çdo kohë mund të shkarkoni të dhënat tuaja ose të fshini llogarinë tuaj. Për më shumë informacion, vizitoni <a href="privacy.html">faqen tonë të privatësisë</a>.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Fundi i faqes -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-eye"></i>
+                        <span>AssistiveSense</span>
+                    </div>
+                    <p>Platformë inovative për ndihmë dhe aksesueshmëri të personave me aftësi të kufizuara të shikimit.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Lidhje të shpejta</h3>
+                    <ul>
+                        <li><a href="index.html">Kryefaqja</a></li>
+                        <li><a href="features.html">Veçoritë</a></li>
+                        <li><a href="dashboard.html">Pulti i përdoruesit</a></li>
+                        <li><a href="privacy.html">Politika e privatësisë</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Burime</h3>
+                    <ul>
+                        <li><a href="reporting.html">Raportoni një problem</a></li>
+                        <li><a href="intellectual-property.html">Pronësia intelektuale</a></li>
+                        <li><a href="#">Përdorimi i cookies</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakti</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@assistivesense.ks</li>
+                        <li><i class="fas fa-phone"></i> +355 4X XXX XXXX</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Prishtinë, Kosovë</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AssistiveSense - Të gjitha të drejtat e rezervuara. Ky aplikacion është projekt akademik.</p>
+                <p><a href="intellectual-property.html">Informacioni i detajuar mbi pronësinë intelektuale dhe licencat</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Edit Info Modal -->
+    <div class="modal" id="editInfoModal" role="dialog" aria-modal="true" aria-labelledby="editInfoTitle" aria-hidden="true">
+        <div class="modal-content" role="document">
+            <div class="modal-header">
+                <h2 id="editInfoTitle"><i class="fas fa-user-edit"></i> Ndrysho informacionin personal</h2>
+                <button class="close-modal" id="closeEditModal" aria-label="Mbylle modalin"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="editInfoForm">
+                    <div class="form-group">
+                        <label for="inputFullName">Emri i plotë</label>
+                        <input type="text" id="inputFullName" name="fullName" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" id="inputEmail" name="email" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputRegDate">Data e regjistrimit</label>
+                        <input type="text" id="inputRegDate" name="regDate" readonly aria-readonly="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNeeds">Nevojat për aksesueshmëri</label>
+                        <select id="inputNeeds" name="needs">
+                            <option value="Shikim i kufizuar">Shikim i kufizuar</option>
+                            <option value="Verbëri ngjyrash">Verbëri ngjyrash</option>
+                            <option value="Verbëri e plotë">Verbëri e plotë</option>
+                            <option value="Tjetër">Tjetër</option>
+                        </select>
+                    </div>
+
+                    <div id="editFormMessage" role="status" aria-live="polite" style="margin-top:6px;color:var(--primary-color);"></div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancelEditBtn">Anulo</button>
+                        <button type="submit" class="btn btn-primary" id="saveEditBtn">Ruaj Ndryshimet</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal për fshirjen e llogarisë -->
+    <div class="modal" id="deleteAccountModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-exclamation-triangle"></i> Fshini llogarinë tuaj</h2>
+                <button class="close-modal" aria-label="Mbylle"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="warning-message">
+                    <p><strong>Kujdes:</strong> Ky veprim është i pakthyeshëm. Të gjitha të dhënat tuaja do të fshihen përgjithmonë.</p>
+                </div>
+                
+                <p>Para se të vazhdoni, ju lutem:</p>
+                <ol>
+                    <li>Sigurohuni që keni shkarkuar të gjitha të dhënat që dëshironi të ruani</li>
+                    <li>Keni fjalëkalimin e saktë për të vërtetuar identitetin tuaj</li>
+                </ol>
+                
+                <form id="deleteAccountForm">
+                    <div class="form-group">
+                        <label for="confirmPassword">Fjalëkalimi aktual:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="confirmDeletion" name="confirmDeletion" required>
+                        <label for="confirmDeletion">E kuptoj që ky veprim është i pakthyeshëm dhe të gjitha të dhënat e mia do të fshihen përgjithmonë.</label>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="submit" class="btn btn-danger">Fshi Llogarinë përgjithmonë</button>
+                        <button type="button" class="btn btn-outline" id="cancelDeletion">Anulo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal për shkarkimin e të dhënave -->
+    <div class="modal" id="downloadDataModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-download"></i> Shkarkoni të dhënat tuaja</h2>
+                <button class="close-modal" aria-label="Mbylle"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Zgjidhni formatin në të cilin dëshironi të shkarkoni të dhënat tuaja:</p>
+                
+                <div class="download-options">
+                    <div class="download-option">
+                        <input type="radio" id="formatJson" name="dataFormat" value="json" checked>
+                        <label for="formatJson">
+                            <i class="fas fa-file-code"></i>
+                            <div>
+                                <h4>JSON</h4>
+                                <p>Format i përshtatshëm për aplikacione të tjera</p>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="download-option">
+                        <input type="radio" id="formatCsv" name="dataFormat" value="csv">
+                        <label for="formatCsv">
+                            <i class="fas fa-file-csv"></i>
+                            <div>
+                                <h4>CSV</h4>
+                                <p>Format i përshtatshëm për spreadsheet si Excel</p>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="download-option">
+                        <input type="radio" id="formatPdf" name="dataFormat" value="pdf">
+                        <label for="formatPdf">
+                            <i class="fas fa-file-pdf"></i>
+                            <div>
+                                <h4>PDF</h4>
+                                <p>Dokument i printueshëm dhe i lehtë për t'u lexuar</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="data-categories">
+                    <h4>Përfshini këto kategori të dhënash:</h4>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeProfile" name="includeProfile" checked>
+                        <label for="includeProfile">Informacioni personal i profilit</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includePreferences" name="includePreferences" checked>
+                        <label for="includePreferences">Preferencat dhe rregullimet</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeActivity" name="includeActivity">
+                        <label for="includeActivity">Historiku i aktivitetit</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeUsage" name="includeUsage">
+                        <label for="includeUsage">Statistikat e përdorimit</label>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn btn-primary" id="startDownload">Shkarko tani</button>
+                    <button class="btn btn-outline" id="cancelDownload">Anulo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Skripta shtesë për pultin e përdoruesit + edit modal behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dropdown-i i përdoruesit
+            const userDropdownToggle = document.getElementById('userDropdownToggle');
+            const userDropdownMenu = document.getElementById('userDropdownMenu');
+            
+            userDropdownToggle.addEventListener('click', function() {
+                userDropdownMenu.classList.toggle('show');
+            });
+            
+            // Mbyll dropdown kur klikohet jashtë
+            window.addEventListener('click', function(e) {
+                if (!userDropdownToggle.contains(e.target) && !userDropdownMenu.contains(e.target)) {
+                    userDropdownMenu.classList.remove('show');
+                }
+            });
+            
+            // Butoni për dalje
+            const logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (confirm('Jeni i sigurt që dëshironi të dilni nga llogaria juaj?')) {
+                    alert('Ju keni dalë me sukses nga llogaria juaj.');
+                    window.location.href = 'index.html';
+                }
+            });
+            
+            // Butoni për fshirjen e llogarisë
+            const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+            const deleteAccountModal = document.getElementById('deleteAccountModal');
+            const cancelDeletion = document.getElementById('cancelDeletion');
+            const deleteAccountForm = document.getElementById('deleteAccountForm');
+            
+            deleteAccountBtn.addEventListener('click', function() {
+                deleteAccountModal.classList.add('active');
+            });
+            
+            cancelDeletion.addEventListener('click', function() {
+                deleteAccountModal.classList.remove('active');
+            });
+            
+            deleteAccountForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (confirm('Jeni ABSOLUTISHT i sigurt që dëshironi të fshini përgjithmonë llogarinë tuaj? Ky veprim NUK mund të kthehet mbrapsht.')) {
+                    // Simulim i fshirjes së llogarisë
+                    alert('Llogaria juaj është fshirë me sukses. Të gjitha të dhënat tuaja janë larguar nga sistemi ynë.');
+                    deleteAccountModal.classList.remove('active');
+                    window.location.href = 'index.html';
+                }
+            });
+            
+            // Butoni për shkarkimin e të dhënave
+            const downloadDataBtn = document.getElementById('downloadDataBtn');
+            const downloadDataModal = document.getElementById('downloadDataModal');
+            const cancelDownload = document.getElementById('cancelDownload');
+            const startDownload = document.getElementById('startDownload');
+            
+            downloadDataBtn.addEventListener('click', function() {
+                downloadDataModal.classList.add('active');
+            });
+            
+            cancelDownload.addEventListener('click', function() {
+                downloadDataModal.classList.remove('active');
+            });
+            
+            startDownload.addEventListener('click', function() {
+                const format = document.querySelector('input[name="dataFormat"]:checked').value;
+                alert(`Shkarkimi i të dhënave tuaja në formatin ${format.toUpperCase()} ka filluar. Ju do të merrni një email kur të dhënat tuaja të jenë gati për shkarkim.`);
+                downloadDataModal.classList.remove('active');
+            });
+            
+            // Veçoritë e shpejta
+            const quickFeatures = document.querySelectorAll('.quick-feature-btn');
+            quickFeatures.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const featureName = this.querySelector('span').textContent;
+                    alert(`Veçoria "${featureName}" është aktivizuar.`);
+                });
+            });
+            
+            // Butoni për menaxhimin e preferencave
+            const managePreferencesBtn = document.getElementById('managePreferencesBtn');
+            managePreferencesBtn.addEventListener('click', function() {
+                window.location.href = 'features.html#personalization';
+            });
+            
+            // Mbyll modalet kur klikohet jashtë
+            window.addEventListener('click', function(e) {
+                if (e.target === deleteAccountModal) {
+                    deleteAccountModal.classList.remove('active');
+                }
+                if (e.target === downloadDataModal) {
+                    downloadDataModal.classList.remove('active');
+                }
+            });
+
+            /* ===========================
+               Edit Info Modal Functionality
+               =========================== */
+            const editInfoBtn = document.getElementById('editInfoBtn');
+            const editInfoModal = document.getElementById('editInfoModal');
+            const closeEditModal = document.getElementById('closeEditModal');
+            const cancelEditBtn = document.getElementById('cancelEditBtn');
+            const editInfoForm = document.getElementById('editInfoForm');
+
+            // Fields
+            const inputFullName = document.getElementById('inputFullName');
+            const inputEmail = document.getElementById('inputEmail');
+            const inputRegDate = document.getElementById('inputRegDate');
+            const inputNeeds = document.getElementById('inputNeeds');
+
+            // Display elements to update
+            const fullNameValue = document.getElementById('fullNameValue');
+            const emailValue = document.getElementById('emailValue');
+            const regDateValue = document.getElementById('regDateValue');
+            const needsValue = document.getElementById('needsValue');
+            const displayFullName = document.getElementById('displayFullName');
+
+            const editFormMessage = document.getElementById('editFormMessage');
+
+            // Utility: simple email validation
+            function isValidEmail(email) {
+                return /\S+@\S+\.\S+/.test(email);
+            }
+
+            // Load saved profile from localStorage or DOM as fallback
+            function loadProfileData() {
+                const storedFullName = localStorage.getItem('userFullName');
+                const storedEmail = localStorage.getItem('userEmail');
+                const storedRegDate = localStorage.getItem('userRegDate');
+                const storedNeeds = localStorage.getItem('userNeeds');
+
+                // If stored use those, otherwise read from page elements
+                const name = storedFullName || fullNameValue.textContent.trim();
+                const email = storedEmail || emailValue.textContent.trim();
+                const regDate = storedRegDate || regDateValue.textContent.trim();
+                const needs = storedNeeds || needsValue.textContent.trim();
+
+                // Prefill UI
+                inputFullName.value = name;
+                inputEmail.value = email;
+                inputRegDate.value = regDate;
+                inputNeeds.value = needs;
+
+                // Ensure display also reflects stored values on load
+                fullNameValue.textContent = name;
+                emailValue.textContent = email;
+                regDateValue.textContent = regDate;
+                needsValue.textContent = needs;
+                displayFullName.textContent = name;
+
+                // Update preference summary fields if present
+                const prefFontEl = document.getElementById('prefFont');
+                const prefContrastEl = document.getElementById('prefContrast');
+                if (prefFontEl && prefContrastEl) {
+                    // These may be set elsewhere; keep as-is if not in storage
+                    prefFontEl.textContent = localStorage.getItem('prefFont') || prefFontEl.textContent;
+                    prefContrastEl.textContent = localStorage.getItem('prefContrast') || prefContrastEl.textContent;
+                }
+            }
+
+            // Open modal and focus first input
+            function openEditModal() {
+                loadProfileData();
+                editInfoModal.classList.add('active');
+                editInfoModal.setAttribute('aria-hidden', 'false');
+                // set initial focus to first input after a tick
+                setTimeout(() => { inputFullName.focus(); }, 100);
+                // save the element that had focus to restore later
+                editInfoModal._previouslyFocused = document.activeElement;
+                // trap focus (basic)
+                trapFocus(editInfoModal);
+            }
+
+            // Close modal and restore focus
+            function closeEditModalFunc() {
+                editInfoModal.classList.remove('active');
+                editInfoModal.setAttribute('aria-hidden', 'true');
+                editFormMessage.textContent = '';
+                // restore focus
+                if (editInfoModal._previouslyFocused) {
+                    try { editInfoModal._previouslyFocused.focus(); } catch (e) {}
+                }
+                // remove focus trap
+                removeTrapFocus(editInfoModal);
+            }
+
+            editInfoBtn.addEventListener('click', function() {
+                openEditModal();
+            });
+
+            closeEditModal.addEventListener('click', function() {
+                closeEditModalFunc();
+            });
+            cancelEditBtn.addEventListener('click', function() {
+                closeEditModalFunc();
+            });
+
+            // Submit handler
+            editInfoForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const newName = inputFullName.value.trim();
+                const newEmail = inputEmail.value.trim();
+                const newRegDate = inputRegDate.value.trim();
+                const newNeeds = inputNeeds.value;
+
+                if (!newName) {
+                    editFormMessage.textContent = 'Ju lutem vendosni emrin e plotë.';
+                    inputFullName.focus();
+                    return;
+                }
+                if (!isValidEmail(newEmail)) {
+                    editFormMessage.textContent = 'Ju lutem vendosni një email të vlefshëm.';
+                    inputEmail.focus();
+                    return;
+                }
+
+                // Save to localStorage (simulim i ruajtjes)
+                try {
+                    localStorage.setItem('userFullName', newName);
+                    localStorage.setItem('userEmail', newEmail);
+                    localStorage.setItem('userRegDate', newRegDate);
+                    localStorage.setItem('userNeeds', newNeeds);
+                } catch (err) {
+                    // if localStorage fails, continue but notify
+                    console.warn('LocalStorage error:', err);
+                }
+
+                // Reflect changes in UI
+                fullNameValue.textContent = newName;
+                emailValue.textContent = newEmail;
+                regDateValue.textContent = newRegDate;
+                needsValue.textContent = newNeeds;
+                displayFullName.textContent = newName;
+
+                editFormMessage.style.color = 'green';
+                editFormMessage.textContent = 'Ndryshimet u ruajtën me sukses.';
+                
+                // close modal after brief delay so user sees message (accessible)
+                setTimeout(() => {
+                    closeEditModalFunc();
+                }, 900);
+            });
+
+            // Basic focus trap: keep tab focus inside modal
+            function trapFocus(modal) {
+                const focusableSelectors = 'a[href], area[href], input:not([disabled]):not([type=hidden]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+                const focusable = Array.from(modal.querySelectorAll(focusableSelectors));
+                if (focusable.length === 0) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+
+                modal._trapHandler = function(e) {
+                    if (e.key === 'Tab') {
+                        if (e.shiftKey) { // shift + tab
+                            if (document.activeElement === first) {
+                                e.preventDefault();
+                                last.focus();
+                            }
+                        } else {
+                            if (document.activeElement === last) {
+                                e.preventDefault();
+                                first.focus();
+                            }
+                        }
+                    } else if (e.key === 'Escape') {
+                        closeEditModalFunc();
+                    }
+                };
+                document.addEventListener('keydown', modal._trapHandler);
+            }
+
+            function removeTrapFocus(modal) {
+                if (modal._trapHandler) {
+                    document.removeEventListener('keydown', modal._trapHandler);
+                    modal._trapHandler = null;
+                }
+            }
+
+            // Initialize profile on load
+            loadProfileData();
+
+            // Also close edit modal when clicking outside content
+            editInfoModal.addEventListener('click', function(e) {
+                if (e.target === editInfoModal) closeEditModalFunc();
+            });
+        });
+    </script>
+    
+    <style>
+        /* Stilizime shtesë për pultin e përdoruesit */
+        .user-profile {
+            position: relative;
+        }
+        
+        .user-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 8px 15px;
+            color: var(--primary-color);
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .user-dropdown-toggle i.fa-user-circle {
+            font-size: 1.5rem;
+        }
+        
+        .user-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: var(--box-shadow-hover);
+            border-radius: var(--border-radius);
+            margin-top: 10px;
+            display: none;
+            z-index: 1000;
+        }
+        
+        body.high-contrast .user-dropdown-menu {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .user-dropdown-menu.show {
+            display: block;
+        }
+        
+        .user-dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: var(--dark-color);
+            border-bottom: 1px solid var(--light-gray);
+            transition: var(--transition);
+        }
+        
+        .user-dropdown-menu a:hover {
+            background-color: var(--light-gray);
+        }
+        
+        body.high-contrast .user-dropdown-menu a {
+            color: #fff;
+            border-bottom: 1px solid #333;
+        }
+        
+        body.high-contrast .user-dropdown-menu a:hover {
+            background-color: #333;
+        }
+        
+        .user-dropdown-menu .dropdown-divider {
+            height: 1px;
+            background-color: var(--light-gray);
+            margin: 5px 0;
+        }
+        
+        .dashboard-section {
+            padding: 40px 0 80px;
+        }
+        
+        .dashboard-header {
+            margin-bottom: 40px;
+        }
+        
+        .dashboard-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            margin-top: 10px;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 992px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .dashboard-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+        }
+        
+        body.high-contrast .dashboard-card {
+            background-color: #111;
+            color: #fff;
+        }
+        
+        .dashboard-card h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Kartat e statistikave */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+        
+        body.high-contrast .stat-item {
+            background-color: #222;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            margin-top: 5px;
+        }
+        
+        /* Veçoritë e shpejta */
+        .quick-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        @media (max-width: 576px) {
+            .quick-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .quick-feature-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 10px;
+            background-color: var(--light-gray);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .quick-feature-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .quick-feature-btn i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Lista e aktivitetit */
+        .activity-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .activity-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .activity-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            font-size: 1.2rem;
+        }
+        
+        .activity-icon.success {
+            color: var(--success-color);
+        }
+        
+        .activity-icon.info {
+            color: var(--primary-color);
+        }
+        
+        .activity-icon.warning {
+            color: var(--warning-color);
+        }
+        
+        .activity-icon.primary {
+            color: var(--primary-color);
+        }
+        
+        .activity-title {
+            font-weight: 600;
+        }
+        
+        .activity-time {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+        
+        /* Seksionet e llogarisë */
+        .account-section {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .account-section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .account-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .account-info {
+            margin-bottom: 20px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--light-gray);
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+        }
+        
+        /* Opsionet e privatësisë */
+        .privacy-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+        }
+        
+        body.high-contrast .privacy-option {
+            background-color: #222;
+        }
+        
+        .privacy-option:last-child {
+            margin-bottom: 0;
+        }
+        
+        .option-info h4 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 5px;
+        }
+        
+        .option-info p {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+        
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+            border: none;
+        }
+        
+        .btn-danger:hover {
+            background-color: #d32f2f;
+        }
+        
+        /* Lista e preferencave */
+        .preferences-list {
+            margin-bottom: 25px;
+        }
+        
+        .preference-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .preference-item:last-child {
+            border-bottom: none;
+        }
+        
+        .preference-info h4 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .preference-info p {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+        
+        .preference-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .preference-status.active {
+            background-color: rgba(76, 201, 240, 0.2);
+            color: var(--success-color);
+        }
+        
+        .preference-status:not(.active) {
+            background-color: rgba(108, 117, 125, 0.2);
+            color: var(--gray-color);
+        }
+        
+        .btn-full {
+            width: 100%;
+        }
+        
+        /* Kujtuesi për privatësinë */
+        .privacy-reminder {
+            background-color: rgba(67, 97, 238, 0.1);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-top: 40px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        body.high-contrast .privacy-reminder {
+            background-color: #222;
+        }
+        
+        .privacy-reminder h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Stilizime për modalet e dashboard-it */
+        .warning-message {
+            background-color: rgba(248, 150, 30, 0.1);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--warning-color);
+            margin-bottom: 20px;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .download-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .download-option input[type="radio"] {
+            display: none;
+        }
+        
+        .download-option label {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .download-option input[type="radio"]:checked + label {
+            border-color: var(--primary-color);
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+        
+        .download-option label i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        
+        .data-categories {
+            margin: 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .data-categories h4 {
+            margin-bottom: 15px;
+        }
+    </style>
+</body>
+</html>
