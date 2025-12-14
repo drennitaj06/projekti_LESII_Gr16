@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privatësia - AssistiveSense</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Njoftimi për transparencë -->
+    <div class="transparency-notice" id="transparencyNotice">
+        <p><i class="fas fa-info-circle"></i> Aktiviteti juaj regjistrohet për siguri dhe për të përmirësuar shërbimin. Për më shumë informacion, shikoni politikën tonë të privatësisë.</p>
+        <button onclick="closeTransparencyNotice()" aria-label="Mbylle njoftimin"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Menyja kryesore -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" aria-label="Kthehu në faqen kryesore">
+                    <i class="fas fa-eye"></i>
+                    <span>AssistiveSense</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Kryefaqja</a></li>
+                <li><a href="features.html"><i class="fas fa-cogs"></i> Veçoritë</a></li>
+                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Pulti</a></li>
+                <li><a href="privacy.html" class="active"><i class="fas fa-user-shield"></i> Privatësia</a></li>
+                <li><a href="reporting.html"><i class="fas fa-flag"></i> Raportim</a></li>
+                <li><a href="intellectual-property.html"><i class="fas fa-balance-scale"></i> Pronësia Intelektuale</a></li>
+            </ul>
+            
+            <div class="accessibility-controls">
+                <button id="increaseFont" aria-label="Rrit madhësinë e fontit"><i class="fas fa-text-height"></i></button>
+                <button id="decreaseFont" aria-label="Zvogëlo madhësinë e fontit"><i class="fas fa-text-width"></i></button>
+                <button id="highContrast" aria-label="Ndrysho kontrastin"><i class="fas fa-adjust"></i></button>
+                <button id="textToSpeechToggle" aria-label="Ndez/Fik transformimin e tekstit në të folur"><i class="fas fa-volume-up"></i></button>
+            </div>
+            
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Hyr</a>
+                <a href="#" class="btn btn-primary" id="registerBtn"><i class="fas fa-user-plus"></i> Regjistrohu</a>
+            </div>
+            
+            <button class="hamburger" id="hamburgerMenu" aria-label="Shfaq/Fshih menynë">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seksioni Hero për Privatësinë -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="main-title">Politika e Privatësisë</h1>
+                    <p class="hero-description">Ne e vlerësojmë privatësinë tuaj dhe jemi të përkushtuar për të mbrojtur të dhënat tuaja personale. Kjo faqe shpjegon se si mbledhim, përdorim dhe mbrojmë informacionin tuaj.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#dataControl" class="btn btn-primary btn-large"><i class="fas fa-sliders-h"></i> Kontrolli i të Dhënave</a>
+                        <a href="#transparency" class="btn btn-secondary btn-large"><i class="fas fa-eye"></i> Transparenca</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-user-shield"></i>
+                        <p>Mbrojtja e privatësisë</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Përmbledhjes së Privatësisë -->
+        <section class="description-section" id="summary">
+            <div class="container">
+                <h2 class="section-title">Përmbledhje e Privatësisë</h2>
+                <p class="section-subtitle">Parimet tona themelore të privatësisë në një shikim</p>
+                
+                <div class="description-grid">
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Privatësia nga Dizajni</h3>
+                        <p>Privatësia është integruar në thellësi të dizajnit dhe arkitekturës së sistemit tonë, jo thjesht shtuar si mendim pasues.</p>
+                    </div>
+                    
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h3>Pëlqimi i Qartë</h3>
+                        <p>Ne kërkojmë pëlqimin tuaj të qartë për mbledhjen dhe përdorimin e të dhënave tuaja, dhe ju mund të tërhiqeni në çdo kohë.</p>
+                    </div>
+                    
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye-slash"></i>
+                        </div>
+                        <h3>Minimizimi i të Dhënave</h3>
+                        <p>Ne mbledhim vetëm të dhënat që janë absolutisht të nevojshme për të ofruar dhe përmirësuar shërbimin tonë.</p>
+                    </div>
+                    
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Mbrojtja e të Dhënave</h3>
+                        <p>Ne përdorim teknologji të avancuar të enkriptimit dhe masat e sigurisë për të mbrojtur të dhënat tuaja.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Kontrollit të të Dhënave -->
+        <section class="matrix-section" id="dataControl">
+            <div class="container">
+                <h2 class="section-title">Kontrolli i të Dhënave tuaja</h2>
+                <p class="section-subtitle">Ju keni të drejtën për të kontrolluar plotësisht të dhënat tuaja personale</p>
+                
+                <div class="data-control-options">
+                    <div class="control-option">
+                        <div class="control-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="control-content">
+                            <h3>Shkarkimi i të Dhënave</h3>
+                            <p>Ju mund të shkarkoni një kopje të të gjitha të dhënave tuaja personale në një format të lexueshëm nga makina. Kjo përfshin profilin tuaj, preferencat, historikun e aktivitetit dhe çdo informacion tjetër që kemi për ju.</p>
+                            <a href="dashboard.html#downloadData" class="btn btn-outline"><i class="fas fa-download"></i> Shkarko të dhënat e mia</a>
+                        </div>
+                    </div>
+                    
+                    <div class="control-option">
+                        <div class="control-icon">
+                            <i class="fas fa-trash-alt"></i>
+                        </div>
+                        <div class="control-content">
+                            <h3>Fshirja e Llogarisë</h3>
+                            <p>Ju keni të drejtën për të fshirë llogarinë tuaj në çdo kohë. Kur të fshini llogarinë, të gjitha të dhënat tuaja personale do të fshihen përgjithmonë nga sistemet tona, përveç nëse kemi një obligim ligjor për t'i ruajtur ato.</p>
+                            <a href="dashboard.html#deleteAccount" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Fshi llogarinë time</a>
+                        </div>
+                    </div>
+                    
+                    <div class="control-option">
+                        <div class="control-icon">
+                            <i class="fas fa-bell-slash"></i>
+                        </div>
+                        <div class="control-content">
+                            <h3>Pajtimi dhe Çpajtimi</h3>
+                            <p>Ju mund të pajtoheni ose çpajtoheni nga komunikimet tona në çdo kohë. Kontrolloni preferencat e komunikimit në llogarinë tuaj për të menaxhuar llojet e komunikimeve që merrni.</p>
+                            <a href="dashboard.html#communicationPrefs" class="btn btn-outline"><i class="fas fa-envelope"></i> Menaxho komunikimet</a>
+                        </div>
+                    </div>
+                    
+                    <div class="control-option">
+                        <div class="control-icon">
+                            <i class="fas fa-user-edit"></i>
+                        </div>
+                        <div class="control-content">
+                            <h3>Përditësimi i Informacionit</h3>
+                            <p>Ju mund të përditësoni ose korrigjoni informacionin personal në llogarinë tuaj në çdo kohë. Kjo përfshin emrin, email-in dhe çdo informacion tjetër të profilit.</p>
+                            <a href="dashboard.html#editProfile" class="btn btn-outline"><i class="fas fa-edit"></i> Përditëso profilin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Transparencës -->
+        <section class="demo-section" id="transparency">
+            <div class="container">
+                <h2 class="section-title">Transparenca e të Dhënave</h2>
+                <p class="section-subtitle">Ne jemi të hapur se çfarë të dhënash mbledhim dhe si i përdorim ato</p>
+                
+                <div class="transparency-table">
+                    <table aria-label="Tabela e transparencës së të dhënave">
+                        <thead>
+                            <tr>
+                                <th scope="col">Lloji i të Dhënave</th>
+                                <th scope="col">Pse e Mbledhim</th>
+                                <th scope="col">Si e Përdorim</th>
+                                <th scope="col">Sa Kohë i Ruajmë</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Informacioni i Profilit</th>
+                                <td>Për të krijuar dhe menaxhuar llogarinë tuaj</td>
+                                <td>Për të personalizuar përvojën tuaj dhe për të komunikuar me ju</td>
+                                <td>Derisa të fshini llogarinë tuaj</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Preferencat e Aksesueshmërisë</th>
+                                <td>Për të përshtatur aplikacionin sipas nevojave tuaja</td>
+                                <td>Për të aplikuar rregullimet tuaja në të gjitha pajisjet</td>
+                                <td>Derisa të fshini llogarinë tuaj</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Të Dhënat e Përdorimit</th>
+                                <td>Për të përmirësuar aplikacionin dhe për të zgjidhur problemet</td>
+                                <td>Analizë anonimizuar për të kuptuar se si përdoret aplikacioni</td>
+                                <td>24 muaj (të anonimizuara pas 12 muajsh)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Të Dhënat e Cookies</th>
+                                <td>Për të mbajtur sesionet tuaja dhe për të përmirësuar përvojën</td>
+                                <td>Për të mbajtur hyrjen tuaj dhe për të personalizuar përmbajtjen</td>
+                                <td>Deri në 12 muaj, në varësi të llojit të cookies</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="transparency-note">
+                    <h3><i class="fas fa-info-circle"></i> Shënim i rëndësishëm</h3>
+                    <p>Të dhënat tuaja <strong>nuk shiten kurrë</strong> palëve të treta për qëllime marketingu. Ne mund të ndajmë të dhëna të anonimizuara me partnerët e kërkimit për të përmirësuar aksesueshmërinë, por këto të dhëna nuk mund të identifikojnë kurrë përdorues individualë.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Sigurisë -->
+        <section class="signup-section" id="security">
+            <div class="container">
+                <h2 class="section-title">Mbrojtja e të Dhënave tuaja</h2>
+                <p class="section-subtitle">Masat e sigurisë që ndërmarrim për të mbrojtur informacionin tuaj</p>
+                
+                <div class="security-features">
+                    <div class="security-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h3>Enkriptimi i Fuqishëm</h3>
+                        <p>Të gjitha të dhënat tuaja transmetohen duke përdorur enkriptimin TLS/SSL dhe ruhen në bazat e të dhënave të enkriptuara.</p>
+                    </div>
+                    
+                    <div class="security-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-lock"></i>
+                        </div>
+                        <h3>Kontrolli i Aksesit</h3>
+                        <p>Vetëm personeli i autorizuar ka akses në të dhënat tuaja, dhe ky akses monitorohet dhe auditohet rregullisht.</p>
+                    </div>
+                    
+                    <div class="security-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Infrastrukturë e Sigurt</h3>
+                        <p>Serverët tanë janë të vendosur në ambiente të sigurta fizikisht dhe janë mbrojtur me firewall dhe sisteme zbulimi të intruderve.</p>
+                    </div>
+                    
+                    <div class="security-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-virus"></i>
+                        </div>
+                        <h3>Mbrojtje nga Sulmet</h3>
+                        <p>Ne monitorojmë vazhdimisht për aktivitete të dyshimta dhe kemi mekanizma për të përgjigjur shpejt ndaj çdo incidenti të sigurisë.</p>
+                    </div>
+                </div>
+                
+                <div class="security-note">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Raportoni Incidentet e Sigurisë</h3>
+                    <p>Nëse dyshoni se ka një problem me sigurinë e të dhënave tuaja ose të aplikacionit tonë, ju lutemi na njoftoni menjëherë në <a href="mailto:security@assistivesense.ks">security@assistivesense.ks</a>. Ne do të hetojmë çdo raport dhe do të marrim masat e nevojshme.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Kontaktit për Privatësinë -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-card">
+                    <h2><i class="fas fa-headset"></i> Keni pyetje për privatësinë?</h2>
+                    <p>Nëse keni ndonjë pyetje në lidhje me politikën tonë të privatësisë ose menaxhimin e të dhënave tuaja, mos hezitoni të na kontaktoni.</p>
+                    
+                    <div class="contact-options">
+                        <div class="contact-option">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email për Privatësinë</h4>
+                            <p><a href="mailto:privacy@assisstivesense.ks">assisstivesense.ks</a></p>
+                        </div>
+                        
+                        <div class="contact-option">
+                            <i class="fas fa-phone"></i>
+                            <h4>Telefon për Privatësinë</h4>
+                            <p>+355 4X XXX XXXX</p>
+                            <p class="contact-hours">E Hënë - E Premte, 9:00 - 17:00</p>
+                        </div>
+                        
+                        <div class="contact-option">
+                            <i class="fas fa-file-alt"></i>
+                            <h4>Kërkesa Formale</h4>
+                            <p>Për kërkesa formale të të drejtave të të dhënave, përdorni <a href="#">formularin tonë të kërkesave</a>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="privacy-update">
+                        <p><strong>Data e fundit e përditësimit:</strong> 1 Dhjetor 2025</p>
+                        <p>Ne mund të përditësojmë këtë politikë të privatësisë periodikisht. Ju inkurajojmë të rishikoni këtë faqe periodikisht për të qenë të informuar për praktikat tona të privatësisë.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Fundi i faqes -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-eye"></i>
+                        <span>AssistiveSense</span>
+                    </div>
+                    <p>Platformë inovative për ndihmë dhe aksesueshmëri të personave me aftësi të kufizuara të shikimit.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Lidhje të shpejta</h3>
+                    <ul>
+                        <li><a href="index.html">Kryefaqja</a></li>
+                        <li><a href="features.html">Veçoritë</a></li>
+                        <li><a href="dashboard.html">Pulti i përdoruesit</a></li>
+                        <li><a href="privacy.html">Politika e privatësisë</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Burime</h3>
+                    <ul>
+                        <li><a href="reporting.html">Raportoni një problem</a></li>
+                        <li><a href="intellectual-property.html">Pronësia intelektuale</a></li>
+                        <li><a href="#">Përdorimi i cookies</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakti</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@assistivesense.ks</li>
+                        <li><i class="fas fa-phone"></i> +355 4X XXX XXXX</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Prishtinë, Kosovë</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AssistiveSense - Të gjitha të drejtat e rezervuara. Ky aplikacion është projekt akademik.</p>
+                <p><a href="intellectual-property.html">Informacioni i detajuar mbi pronësinë intelektuale dhe licencat</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modalet (të njëjta si në index.html) -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Hyr në llogari</h2>
+                <button class="close-modal" aria-label="Mbylle"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" name="loginEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">Fjalëkalimi:</label>
+                        <input type="password" id="loginPassword" name="loginPassword" required>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <label for="rememberMe">Më mbaj mend</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full">Hyr</button>
+                </form>
+                
+                <div class="modal-footer">
+                    <p>Nuk keni llogari? <a href="#" id="goToRegister">Regjistrohu këtu</a></p>
+                    <p><a href="#">Keni harruar fjalëkalimin?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Krijo llogari</h2>
+                <button class="close-modal" aria-label="Mbylle"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Për të krijuar një llogari, përdorni formularin e regjistrimit në faqen kryesore ose klikoni <a href="index.html#registrationForm">këtu</a>.</p>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="closeRegisterModal">Mbyll</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <style>
+        /* Stilizime shtesë për faqen e privatësisë */
+        .data-control-options {
+            margin-top: 40px;
+        }
+        
+        .control-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .control-option:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .control-icon {
+            background-color: rgba(67, 97, 238, 0.1);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+        
+        .control-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .control-content p {
+            margin-bottom: 10px;
+        }
+
+        .transparency-table {
+            overflow-x: auto;
+            margin: 40px 0;
+        }
+        
+        .transparency-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        body.high-contrast .transparency-table table {
+            background-color: #111;
+            color: #fff;
+        }
+        
+        .transparency-table th, .transparency-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        body.high-contrast .transparency-table th,
+        body.high-contrast .transparency-table td {
+            border-bottom: 1px solid #333;
+        }
+        
+        .transparency-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        
+        body.high-contrast .transparency-table th {
+            background-color: #222;
+        }
+        
+        .transparency-table tbody tr:hover {
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+        
+        body.high-contrast .transparency-table tbody tr:hover {
+            background-color: #222;
+        }
+        
+        .transparency-note {
+            background-color: rgba(67, 97, 238, 0.1);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+            margin-top: 30px;
+        }
+        
+        body.high-contrast .transparency-note {
+            background-color: #222;
+        }
+        
+        .transparency-note h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .security-feature {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+        
+        body.high-contrast .security-feature {
+            background-color: #111;
+            color: #fff;
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(67, 97, 238, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .security-feature h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .security-note {
+            background-color: rgba(248, 150, 30, 0.1);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--warning-color);
+            margin-top: 40px;
+        }
+        
+        body.high-contrast .security-note {
+            background-color: #222;
+        }
+        
+        .security-note h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        body.high-contrast .contact-section {
+            background-color: #000;
+        }
+        
+        .contact-card {
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        body.high-contrast .contact-card {
+            background-color: #111;
+            color: #fff;
+        }
+        
+        .contact-card h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .contact-card > p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gray-color);
+        }
+        
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-option {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+        }
+        
+        body.high-contrast .contact-option {
+            background-color: #222;
+            color: #fff;
+        }
+        
+        .contact-option i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .contact-option h4 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+        }
+        
+        .contact-hours {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            margin-top: 5px;
+        }
+        
+        .privacy-update {
+            background-color: rgba(108, 117, 125, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        body.high-contrast .privacy-update {
+            background-color: #222;
+        }
+    </style>
+</body>
+</html>
