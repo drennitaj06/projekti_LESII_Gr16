@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronësia Intelektuale - Shikimi I.A.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Njoftimi për transparencë -->
+    <div class="transparency-notice" id="transparencyNotice">
+        <p><i class="fas fa-info-circle"></i> Aktiviteti juaj regjistrohet për siguri dhe për të përmirësuar shërbimin. Për më shumë informacion, shikoni politikën tonë të privatësisë.</p>
+        <button onclick="closeTransparencyNotice()" aria-label="Mbylle njoftimin"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Menyja kryesore -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" aria-label="Kthehu në faqen kryesore">
+                    <i class="fas fa-eye"></i>
+                    <span>AssistiveSense</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Kryefaqja</a></li>
+                <li><a href="features.html"><i class="fas fa-cogs"></i> Veçoritë</a></li>
+                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Pulti</a></li>
+                <li><a href="privacy.html"><i class="fas fa-user-shield"></i> Privatësia</a></li>
+                <li><a href="reporting.html"><i class="fas fa-flag"></i> Raportim</a></li>
+                <li><a href="intellectual-property.html" class="active"><i class="fas fa-balance-scale"></i> Pronësia Intelektuale</a></li>
+            </ul>
+            
+            <div class="accessibility-controls">
+                <button id="increaseFont" aria-label="Rrit madhësinë e fontit"><i class="fas fa-text-height"></i></button>
+                <button id="decreaseFont" aria-label="Zvogëlo madhësinë e fontit"><i class="fas fa-text-width"></i></button>
+                <button id="highContrast" aria-label="Ndrysho kontrastin"><i class="fas fa-adjust"></i></button>
+                <button id="textToSpeechToggle" aria-label="Ndez/Fik transformimin e tekstit në të folur"><i class="fas fa-volume-up"></i></button>
+            </div>
+            
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Hyr</a>
+                <a href="#" class="btn btn-primary" id="registerBtn"><i class="fas fa-user-plus"></i> Regjistrohu</a>
+            </div>
+            
+            <button class="hamburger" id="hamburgerMenu" aria-label="Shfaq/Fshih menynë">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seksioni Hero për Pronësinë Intelektuale -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="main-title">Pronësia Intelektuale dhe Licencat</h1>
+                    <p class="hero-description">Ky aplikacion është projekt akademik. Kjo faqe shpjegon të drejtat e pronësisë intelektuale, licencat dhe informacionin ligjor në lidhje me përmbajtjen dhe kodin e aplikacionit.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#licenses" class="btn btn-primary btn-large"><i class="fas fa-file-contract"></i> Licencat e Përdorura</a>
+                        <a href="#usage" class="btn btn-secondary btn-large"><i class="fas fa-user-check"></i> Përdorimi i Lejuar</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-balance-scale"></i>
+                        <p>Pronësia intelektuale</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Përmbledhjes -->
+        <section class="description-section" id="summary">
+            <div class="container">
+                <h2 class="section-title">Përmbledhje e Pronësisë Intelektuale</h2>
+                <p class="section-subtitle">Ky projekt akademik përdor burime të hapura dhe respekton të gjitha të drejtat e pronësisë intelektuale</p>
+                
+                <div class="description-grid">
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Kodi Burimor</h3>
+                        <p>Kodi burimor i këtij aplikacioni është projekt akademik dhe është i disponueshëm për qëllime arsimore. Çdo përdorim komercial kërkon lejen e autorit.</p>
+                    </div>
+                    
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h3>Përmbajtja Grafike</h3>
+                        <p>Imazhet dhe ikonat e përdorura në këtë aplikacion janë ose të krijuara nga autori ose të marra nga burime me licenca të lira.</p>
+                    </div>
+                    
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-font"></i>
+                        </div>
+                        <h3>Fontet</h3>
+                        <p>Fontet e përdorura janë të disponueshme falas për përdorim personal dhe komercial përmes Google Fonts.</p>
+                    </div>
+                    
+                    <div class="description-card">
+                        <div class="card-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Dokumentacioni</h3>
+                        <p>Të gjitha dokumentet dhe materialet e shkruara janë të krijuara nga autori i projektit për qëllime akademike.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Licencave -->
+        <section class="matrix-section" id="licenses">
+            <div class="container">
+                <h2 class="section-title">Licencat e Përdorura</h2>
+                <p class="section-subtitle">Ky aplikacion përdor teknologji dhe burime të ndryshme me licenca të ndryshme</p>
+                
+                <div class="licenses-table">
+                    <table aria-label="Tabela e licencave të përdorura në aplikacion">
+                        <thead>
+                            <tr>
+                                <th scope="col">Burimi</th>
+                                <th scope="col">Lloji i Licencës</th>
+                                <th scope="col">Përshkrimi</th>
+                                <th scope="col">Kufizimet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">FontAwesome Icons</th>
+                                <td>Font Awesome Free License</td>
+                                <td>Ikonat e përdorura për përmirësimin e ndërfaqes së përdoruesit</td>
+                                <td>Përdorim i lirë për projekte personale dhe komerciale me atribucion</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Google Fonts</th>
+                                <td>SIL Open Font License</td>
+                                <td>Fontet Poppins dhe Open Sans të përdorura në aplikacion</td>
+                                <td>Përdorim i lirë për projekte personale dhe komerciale</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">HTML/CSS/JavaScript Kod</th>
+                                <td>MIT License (Projekt Akademik)</td>
+                                <td>Kodi burimor i krijuar për këtë projekt akademik</td>
+                                <td>Përdorim akademik falas; përdorim komercial kërkon leje</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">SpeechSynthesis API</th>
+                                <td>Browser Native API</td>
+                                <td>API e integruar në shfletues për tekst-në-të-folur</td>
+                                <td>Nuk ka kufizime të veçanta për përdorim</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CSS Reset</th>
+                                <td>Public Domain</td>
+                                <td>Reset CSS për konsistencë nëpër shfletues të ndryshëm</td>
+                                <td>Nuk ka kufizime të veçanta për përdorim</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="license-note">
+                    <h3><i class="fas fa-exclamation-circle"></i> Shënim i rëndësishëm</h3>
+                    <p>Ky aplikacion është krijuar si projekt akademik dhe nuk është menduar për përdorim komercial pa lejen e autorit. Të gjitha të drejtat e pronësisë intelektuale që nuk janë specifikuar në këtë faqe i mbahen autorit të projektit.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Përdorimit të Lejuar -->
+        <section class="demo-section" id="usage">
+            <div class="container">
+                <h2 class="section-title">Përdorimi i Lejuar dhe i Ndaluar</h2>
+                <p class="section-subtitle">Këtu përcaktojmë se çfarë përdorimi është i lejuar dhe çfarë është i ndaluar për këtë projekt</p>
+                
+                <div class="usage-container">
+                    <div class="usage-column">
+                        <div class="usage-card allowed">
+                            <div class="usage-header">
+                                <i class="fas fa-check-circle"></i>
+                                <h3>Përdorimi i Lejuar</h3>
+                            </div>
+                            <ul class="usage-list">
+                                <li><i class="fas fa-check"></i> Përdorim për qëllime arsimore dhe akademike</li>
+                                <li><i class="fas fa-check"></i> Studim dhe analizë e kodit për të mësuar zhvillim web</li>
+                                <li><i class="fas fa-check"></i> Testimi i veçorive të aksesueshmërisë</li>
+                                <li><i class="fas fa-check"></i> Përdorim personal për të kuptuar teknologjitë e aksesueshmërisë</li>
+                                <li><i class="fas fa-check"></i> Referim në punime akademike me atribucion të duhur</li>
+                                <li><i class="fas fa-check"></i> Modifikim për projekte personale jo-komerciale</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="usage-column">
+                        <div class="usage-card prohibited">
+                            <div class="usage-header">
+                                <i class="fas fa-times-circle"></i>
+                                <h3>Përdorimi i Ndaluar</h3>
+                            </div>
+                            <ul class="usage-list">
+                                <li><i class="fas fa-times"></i> Përdorim komercial pa leje të shkruar nga autori</li>
+                                <li><i class="fas fa-times"></i> Riprodhim i plotë i projektit si produkt komercial</li>
+                                <li><i class="fas fa-times"></i> Shitja ose rishitja e kodit burimor</li>
+                                <li><i class="fas fa-times"></i> Paraqitja e punës si punë tënde pa atribucion</li>
+                                <li><i class="fas fa-times"></i> Përdorim në aplikacione me qëllime të liga ose mashtruese</li>
+                                <li><i class="fas fa-times"></i> Modifikim dhe përdorim në projekte që shkelin të drejtat e njeriut</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="attribution-requirements">
+                    <h3><i class="fas fa-copyright"></i> Kërkesat për Atribucion</h3>
+                    <p>Nëse përdorni këtë projekt në punën tuaj akademike ose në një projekt personal, ju lutemi të përfshini atribucionin e duhur:</p>
+                    
+                    <div class="attribution-example">
+                        <h4>Shembull i atribucionit:</h4>
+                        <div class="attribution-code">
+                            <p>"Shikimi I.A. - Aplikacion Web për Personat me Aftësi të Kufizuara të Shikimit" - Projekt akademik i krijuar nga [Emri i Autorit]. Kod burimor i disponueshëm për qëllime arsimore.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Shkeljeve dhe Ankesave -->
+        <section class="signup-section" id="violations">
+            <div class="container">
+                <h2 class="section-title">Shkeljet e Pronësisë Intelektuale</h2>
+                <p class="section-subtitle">Procedurat për raportimin e shkeljeve dhe ankesat në lidhje me pronësinë intelektuale</p>
+                
+                <div class="violations-process">
+                    <div class="violations-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Zbulimi i Shkeljes</h3>
+                            <p>Nëse besoni se puna juaj e pronësisë intelektuale është përdorur në këtë aplikacion pa lejen tuaj, ose nëse shihni shkelje të pronësisë intelektuale, na kontaktoni menjëherë.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="violations-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Paraqitja e Ankesës</h3>
+                            <p>Paraqitni një ankesë të detajuar që përfshin: punën e prekur, vendndodhjen e saj në aplikacion, dhe provat e pronësisë suaj (nëse është e aplikueshme).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="violations-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Hetimi dhe Veprimi</h3>
+                            <p>Ne do të hetojmë ankesën brenda 7 ditëve pune dhe do të marrim masat e nevojshme, të cilat mund të përfshijnë heqjen e përmbajtjes ose dhënien e atribucionit të duhur.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="violations-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Njoftimi dhe Zgjidhja</h3>
+                            <p>Ju do të njoftoheni për rezultatet e hetimit tonë dhe për çdo veprim që kemi ndërmarrë për të adresuar ankesën tuaj.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="violations-contact">
+                    <h3><i class="fas fa-envelope"></i> Paraqitni ankesën tuaj</h3>
+                    <p>Për të paraqitur një ankesë për shkelje të pronësisë intelektuale, ju lutemi na dërgoni një email në:</p>
+                    
+                    <div class="contact-email">
+                        <a href="mailto:copyright@shikimia.al" class="email-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>copyright@shikimia.al</span>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <p><strong>Informacioni i kërkuar në email:</strong></p>
+                        <ul>
+                            <li>Emri i plotë dhe informacioni i kontaktit</li>
+                            <li>Përshkrimi i punës së prekur</li>
+                            <li>URL-ja e faqes ku ndodhet përmbajtja e diskutueshme</li>
+                            <li>Dëshmi e pronësisë (nëse është e aplikueshme)</li>
+                            <li>Deklarata se besoni me mirëbesim se përdorimi është i paautorizuar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seksioni i Kontaktit për Çështje Ligjore -->
+        <section class="contact-section" id="legal">
+            <div class="container">
+                <h2 class="section-title">Informacione Ligjore</h2>
+                <p class="section-subtitle">Kontakti dhe informacione shtesë për çështjet ligjore dhe të pronësisë intelektuale</p>
+                
+                <div class="legal-disclaimer">
+                    <h3><i class="fas fa-gavel"></i> Deklarata Ligjore</h3>
+                    <p>Ky aplikacion është projekt akademik dhe ofrohet "ashtu siç është", pa asnjë garanci, as të shprehura as të nënkuptuara. Autori nuk merr përgjegjësi për çdo dëmtim të drejtpërdrejtë, indirekt, të rastësishëm, të veçantë ose pasojor që rezulton nga përdorimi ose pamundësia për të përdorur këtë aplikacion.</p>
+                    
+                    <p>Të gjitha emrat e produkteve, kompanive dhe markave të përmendura janë pronë e pronarëve të tyre të respektuar. Përdorimi i tyre këtu nuk nënkupton lidhje, sponsorizim ose rekomandim nga ata.</p>
+                </div>
+                
+                <div class="legal-contact">
+                    <h3><i class="fas fa-balance-scale"></i> Kontakti për Çështje Ligjore</h3>
+                    
+                    <div class="legal-options">
+                        <div class="legal-option">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email për Çështje Ligjore</h4>
+                            <p><a href="mailto:legal@shikimia.al">legal@shikimia.al</a></p>
+                        </div>
+                        
+                        <div class="legal-option">
+                            <i class="fas fa-file-contract"></i>
+                            <h4>Kërkesa Formale</h4>
+                            <p>Për kërkesa formale ligjore, ju lutemi përdorni adresën postare të mëposhtme</p>
+                        </div>
+                        
+                        <div class="legal-option">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>Adresa Postare</h4>
+                            <p>Shikimi I.A.<br>Tiranë, Albania<br>Kutia Postare 1234</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="update-info">
+                    <h3><i class="fas fa-history"></i> Përditësimet e Informacionit</h3>
+                    <p>Kjo faqe mund të përditësohet periodikisht për të reflektuar ndryshimet në licencat e përdorura ose informacionin e pronësisë intelektuale. Data e fundit e përditësimit është 1 Dhjetor 2023.</p>
+                    
+                    <div class="version-info">
+                        <p><strong>Versioni i aplikacionit:</strong> 1.0 (Projekt Akademik)</p>
+                        <p><strong>Data e publikimit:</strong> Dhjetor 2023</p>
+                        <p><strong>Statusi i projektit:</strong> Prototip Akademik</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Fundi i faqes -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-eye"></i>
+                        <span>AssistiveSense</span>
+                    </div>
+                    <p>Platformë inovative për ndihmë dhe aksesueshmëri të personave me aftësi të kufizuara të shikimit.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Lidhje të shpejta</h3>
+                    <ul>
+                        <li><a href="index.html">Kryefaqja</a></li>
+                        <li><a href="features.html">Veçoritë</a></li>
+                        <li><a href="dashboard.html">Pulti i përdoruesit</a></li>
+                        <li><a href="privacy.html">Politika e privatësisë</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Burime</h3>
+                    <ul>
+                        <li><a href="reporting.html">Raportoni një problem</a></li>
+                        <li><a href="intellectual-property.html">Pronësia intelektuale</a></li>
+                        <li><a href="#">Përdorimi i cookies</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakti</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@assistivesense.ks</li>
+                        <li><i class="fas fa-phone"></i> +355 4X XXX XXXX</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Prishtinë, Kosovë</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AssistiveSense - Të gjitha të drejtat e rezervuara. Ky aplikacion është projekt akademik.</p>
+                <p><a href="intellectual-property.html">Informacioni i detajuar mbi pronësinë intelektuale dhe licencat</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modalet (të njëjta si në index.html) -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Hyr në llogari</h2>
+                <button class="close-modal" aria-label="Mbylle"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" name="loginEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">Fjalëkalimi:</label>
+                        <input type="password" id="loginPassword" name="loginPassword" required>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <label for="rememberMe">Më mbaj mend</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full">Hyr</button>
+                </form>
+                
+                <div class="modal-footer">
+                    <p>Nuk keni llogari? <a href="#" id="goToRegister">Regjistrohu këtu</a></p>
+                    <p><a href="#">Keni harruar fjalëkalimin?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Krijo llogari</h2>
+                <button class="close-modal" aria-label="Mbylle"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Për të krijuar një llogari, përdorni formularin e regjistrimit në faqen kryesore ose klikoni <a href="index.html#registrationForm">këtu</a>.</p>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="closeRegisterModal">Mbyll</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <style>
+        /* Stilizime shtesë për faqen e pronësisë intelektuale */
+        .licenses-table {
+            overflow-x: auto;
+            margin: 40px 0;
+        }
+        
+        .licenses-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        body.high-contrast .licenses-table table {
+            background-color: #111;
+            color: #fff;
+        }
+        
+        .licenses-table th, .licenses-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        body.high-contrast .licenses-table th,
+        body.high-contrast .licenses-table td {
+            border-bottom: 1px solid #333;
+        }
+        
+        .licenses-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        
+        body.high-contrast .licenses-table th {
+            background-color: #222;
+        }
+        
+        .licenses-table tbody tr:hover {
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+        
+        body.high-contrast .licenses-table tbody tr:hover {
+            background-color: #222;
+        }
+        
+        .license-note {
+            background-color: rgba(248, 150, 30, 0.1);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--warning-color);
+            margin-top: 30px;
+        }
+        
+        body.high-contrast .license-note {
+            background-color: #222;
+        }
+        
+        .license-note h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Përdorimi i lejuar dhe i ndaluar */
+        .usage-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .usage-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .usage-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .usage-card.allowed {
+            border-top: 4px solid var(--success-color);
+        }
+        
+        .usage-card.prohibited {
+            border-top: 4px solid var(--danger-color);
+        }
+        
+        .usage-header {
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: white;
+        }
+        
+        body.high-contrast .usage-header {
+            background-color: #111;
+            color: #fff;
+        }
+        
+        .usage-header.allowed {
+            background-color: rgba(76, 201, 240, 0.1);
+        }
+        
+        .usage-header.prohibited {
+            background-color: rgba(249, 65, 68, 0.1);
+        }
+        
+        .usage-header i {
+            font-size: 2rem;
+        }
+        
+        .usage-header.allowed i {
+            color: var(--success-color);
+        }
+        
+        .usage-header.prohibited i {
+            color: var(--danger-color);
+        }
+        
+        .usage-header h3 {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+        
+        .usage-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .usage-list li {
+            padding: 15px 25px;
+            border-top: 1px solid var(--light-gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        body.high-contrast .usage-list li {
+            border-top: 1px solid #333;
+        }
+        
+        .usage-list li i {
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .usage-list.allowed li i {
+            color: var(--success-color);
+        }
+        
+        .usage-list.prohibited li i {
+            color: var(--danger-color);
+        }
+        
+        .attribution-requirements {
+            background-color: rgba(67, 97, 238, 0.1);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-top: 40px;
+        }
+        
+        body.high-contrast .attribution-requirements {
+            background-color: #222;
+        }
+        
+        .attribution-requirements h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .attribution-example {
+            margin-top: 20px;
+        }
+        
+        .attribution-example h4 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+        }
+        
+        .attribution-code {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+            font-family: monospace;
+        }
+        
+        body.high-contrast .attribution-code {
+            background-color: #222;
+            color: #fff;
+        }
+        
+        /* Procesi i shkeljeve */
+        .violations-process {
+            margin: 40px 0;
+        }
+        
+        .violations-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .violations-step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .violations-contact {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            margin-top: 40px;
+        }
+        
+        body.high-contrast .violations-contact {
+            background-color: #111;
+            color: #fff;
+        }
+        
+        .violations-contact h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-email {
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 40px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .email-link:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+        }
+        
+        .contact-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .contact-info li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .contact-info li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        /* Informacione ligjore */
+        .legal-disclaimer {
+            background-color: rgba(108, 117, 125, 0.1);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+        }
+        
+        body.high-contrast .legal-disclaimer {
+            background-color: #222;
+        }
+        
+        .legal-disclaimer h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legal-contact {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 40px;
+        }
+        
+        body.high-contrast .legal-contact {
+            background-color: #111;
+            color: #fff;
+        }
+        
+        .legal-contact h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legal-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .legal-option {
+            text-align: center;
+        }
+        
+        .legal-option i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .legal-option h4 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+        }
+        
+        .update-info {
+            background-color: rgba(67, 97, 238, 0.1);
+            padding: 30px;
+            border-radius: var(--border-radius);
+        }
+        
+        body.high-contrast .update-info {
+            background-color: #222;
+        }
+        
+        .update-info h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .version-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+        }
+        
+        body.high-contrast .version-info {
+            background-color: #111;
+            color: #fff;
+        }
+    </style>
+</body>
+</html>
